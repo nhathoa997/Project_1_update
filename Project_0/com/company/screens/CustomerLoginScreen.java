@@ -2,8 +2,8 @@ package com.company.screens;
 
 import com.company.Platform.Application;
 import com.company.Platform.Screen;
+import com.company.io.AuthenticationDAO;
 import com.company.system.Session;
-import services.CustomerAuthentication;
 
 import java.util.Scanner;
 
@@ -12,7 +12,8 @@ public class CustomerLoginScreen implements Screen {
     private String password = "";
     private Screen nextScreen;
     private Session session;
-    private CustomerAuthentication authService;
+    //private CustomerAuthentication authService;
+    private AuthenticationDAO authService = new AuthenticationDAO();
 
 
 
@@ -28,7 +29,8 @@ public class CustomerLoginScreen implements Screen {
         while(password.isEmpty()) {
             password = scanner.nextLine();
         }
-        if (authService.authenticate(userName,password)){
+        if (authService.Authenticate(userName,password)){
+            System.out.println("Successfully Authenticate!");
             nextScreen = new CustomerScreen(userName);
         }
         else{

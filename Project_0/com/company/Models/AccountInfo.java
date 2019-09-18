@@ -1,9 +1,8 @@
 package com.company.Models;
-import services.AccountTransaction;
-import services.TransactionHistory;
-import java.util.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AccountInfo implements Serializable {
     private String userName;
@@ -11,8 +10,7 @@ public class AccountInfo implements Serializable {
     private String password;
     ArrayList<Integer> accountID = new ArrayList<Integer>();
     private String[] transactionHist;
-    AccountTransaction transaction;
-
+    private static final long serialVersionUID = 340681967564469107L;
 
 
     public AccountInfo(String userName, String password){
@@ -38,6 +36,10 @@ public class AccountInfo implements Serializable {
         this.userName = userName;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -60,30 +62,16 @@ public class AccountInfo implements Serializable {
         }
     }
 
-    public void withdraw(double amount){
-        if (transaction.withdrawal(this.balance, amount) == -1)
-            System.out.println("Transaction unsuccessful. You enter: $" + amount + ", your balance: $" + balance);
-        else {
+    public String[] getTransactionHist() {
+        return transactionHist;
+    }
 
-            balance = transaction.withdrawal(balance,amount);
-            TransactionHistory withdrawHist = new TransactionHistory();
-            this.transactionHist = withdrawHist.setTranHist(balance,amount,"Withdrawal", transactionHist);
-            System.out.println("Transaction successful. Your new balance is: $" + balance);
+    public void setTransactionHist(String[] transactionHist) {
+        this.transactionHist = transactionHist;
+    }
+    public void viewTranHist(){
+        for(int i = 0; i < transactionHist.length; i++){
+            System.out.println(transactionHist[i]);
         }
     }
-    public void deposit(double amount){
-        if (transaction.deposit(this.balance, amount) == -1)
-            System.out.println("Transaction unsuccessful. You enter: $" + amount + ", your balance: $" + balance);
-        else {
-            balance = transaction.deposit(balance,amount);
-            TransactionHistory depositHist = new TransactionHistory();
-            this.transactionHist = depositHist.setTranHist(balance,amount,"Deposit", transactionHist);
-            System.out.println("Transaction successful. Your new balance is $" + balance);
-        }
-
-    }
-    public void viewTransactionHist(){
-        for(int i = 0; i<transactionHist.length; i++) System.out.println(transactionHist[i]);
-    }
-
 }

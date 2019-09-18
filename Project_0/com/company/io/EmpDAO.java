@@ -7,7 +7,7 @@ import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 
 public class EmpDAO {
-    protected static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\src\\com\\company\\resources\\empData";
+    protected static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_0\\com\\company\\resources\\empData";
     protected static HashMap<String, AccountInfo> data = new HashMap();
 
     public AccountInfo Read(String userName){

@@ -1,7 +1,9 @@
 package com.company;
 
 
-import com.company.io.AuthenticationDAO;
+import com.company.Platform.Application;
+import com.company.system.BankApplication;
+import services.CreateNewUser;
 
 public class Main {
     static String bankTitle =  "Loanly Peoples Credit Union";
@@ -12,16 +14,11 @@ public class Main {
         //Application app = new BankApplication();
         //app.setTitle(bankTitle);
         //app.run(args);
-        //AccountInfo newUser = new AccountInfo("Henry Dinh", "Henry8354392.");
-        //DAOClass dao = new DAOClass();
-        //dao.createNewUser("Henry Dinh");
-        //dao.Write();
-        //dao.Read();
-
-        //CreateNewUser newUser = new CreateNewUser();
-        //newUser.create("Henry Dinh", "Henry8354392.");
-        AuthenticationDAO dao = new AuthenticationDAO();
-        System.out.println(dao.Authenticate("Henry Dinh", "Henry8354392."));
+        CreateNewUser newUser = new CreateNewUser();
+        newUser.create("rjsargent", "password1");
+        Application app = new BankApplication();
+        app.setTitle(bankTitle);
+        app.run(args);
 
 
 

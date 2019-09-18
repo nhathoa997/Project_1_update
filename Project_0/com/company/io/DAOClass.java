@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class DAOClass {
     //protected AccountInfo user;
-    protected static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\src\\com\\company\\resources\\data.txt";
+    protected static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_0\\com\\company\\resources\\data.txt";
     protected static HashMap<String, AccountInfo> data = new HashMap();
 
     public static HashMap<String, AccountInfo> getData() {
@@ -20,7 +20,6 @@ public class DAOClass {
             ObjectInputStream fileInput = new ObjectInputStream(new FileInputStream(file));
             this.data =  (HashMap<String, AccountInfo>) fileInput.readObject();
             fileInput.close();
-            System.out.println("Have been Read");
             //data.get(userName).getUserInfo();
 
         }
@@ -40,7 +39,6 @@ public class DAOClass {
             ObjectInputStream fileInput = new ObjectInputStream(new FileInputStream(file));
             Object userInfo =  fileInput.readObject();
             fileInput.close();
-            System.out.println("Have been Read");
             //data.get(userName).getUserInfo();
             return (AccountInfo) data.get(userName);
         }
@@ -60,7 +58,6 @@ public class DAOClass {
         try {
             ObjectOutputStream fileOutput = new ObjectOutputStream(new FileOutputStream(file));
             data.put(userName, user);
-            System.out.println("Have been Written");
             fileOutput.writeObject(data);
             fileOutput.close();
 
