@@ -1,42 +1,41 @@
 package com.company.io;
 
-import com.company.Models.AccountInfo;
+import com.company.Models.EmployeeAccount;
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 
 public class EmpDAO {
-    protected static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_0\\com\\company\\resources\\empData";
-    protected static HashMap<String, AccountInfo> data = new HashMap();
+    private static final String file = "C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_0\\com\\company\\resources\\empdata.txt";
+    private static HashMap<String, EmployeeAccount> emp_data = new HashMap();
 
-    public AccountInfo Read(String userName){
-        try{
+    public EmployeeAccount Read(String userName) {
+        try {
             ObjectInputStream fileInput = new ObjectInputStream(new FileInputStream(file));
-            Object userInfo =  fileInput.readObject();
+            this.emp_data =  (HashMap<String, EmployeeAccount>) fileInput.readObject();
             fileInput.close();
-            System.out.println("Have been Read");
-            //data.get(userName).getUserInfo();
-            return (AccountInfo) data.get(userName);
+            return (EmployeeAccount) emp_data.get(userName);
+
         }
         catch(FileAlreadyExistsException e){
             e.printStackTrace();
-        }
-        catch(ClassNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        catch(Exception e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public void Write(String userName, AccountInfo user){
-        try{
+
+    public void Write(String userName, EmployeeAccount user){
+        try {
             ObjectOutputStream fileOutput = new ObjectOutputStream(new FileOutputStream(file));
-            data.put(userName, user);
-            System.out.println("Have been Written");
-            fileOutput.writeObject(data);
+            emp_data.put(userName, user);
+            fileOutput.writeObject(emp_data);
             fileOutput.close();
 
         }

@@ -20,7 +20,7 @@ public class StringMenuBuilder implements MenuBuilder {
         return state.toString();
     }
     public StringMenuBuilder addOption(String key, String value) {
-        state.append(String.format("%s. %s %s", key, value, delimiter));
+        state.append(String.format("%s%s %s", key, value, delimiter));
         return this;
     }
 

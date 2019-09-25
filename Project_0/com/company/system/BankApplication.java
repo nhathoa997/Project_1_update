@@ -4,6 +4,7 @@ import com.company.Platform.Application;
 import com.company.Platform.Screen;
 import com.company.screens.WelcomeScreen;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class BankApplication extends Application{
     }
 
     @Override
-    public void run(String[] args) {
+    public void run(String[] args) throws SQLException, ClassNotFoundException {
         //LOG.debug("Application Startup");
         //LOG.info("Application Startup");
         //initContext();

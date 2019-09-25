@@ -2,23 +2,23 @@ package com.company.screens;
 
 import com.company.Platform.Application;
 import com.company.Platform.Screen;
-import com.company.io.AuthenticationDAO;
-import com.company.system.Session;
+import services.Authentication;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CustomerLoginScreen implements Screen {
     private String userName = "";
     private String password = "";
     private Screen nextScreen;
-    private Session session;
-    //private CustomerAuthentication authService;
-    private AuthenticationDAO authService = new AuthenticationDAO();
+    private Authentication authService = new Authentication();
 
+    public CustomerLoginScreen() throws SQLException, ClassNotFoundException {
+    }
 
 
     @Override
-    public Screen doScreen(Scanner scanner, Application app) {
+    public Screen doScreen(Scanner scanner, Application app) throws SQLException, ClassNotFoundException {
         System.out.println("Welcome to Customer's Login Page! Please enter your credentials: ");
         System.out.println("User Name: ");
         nextScreen = null;
@@ -29,15 +29,26 @@ public class CustomerLoginScreen implements Screen {
         while(password.isEmpty()) {
             password = scanner.nextLine();
         }
-        if (authService.Authenticate(userName,password)){
+        if (authService.authenticate(userName,password,"customer")){
             System.out.println("Successfully Authenticate!");
-            nextScreen = new CustomerScreen(userName);
+            try {
+                nextScreen = new CustomerScreen(userName);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
-        else{
+        else if (!authService.authenticate(userName,password,"customer")){
             System.out.println("Your Account doesn't exist. Please log in again.");
-            nextScreen = new CustomerLoginScreen();
+            try {
+                nextScreen = new CustomerLoginScreen();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
         return nextScreen;
     }
-
 }

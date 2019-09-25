@@ -4,6 +4,7 @@ import com.company.Platform.Application;
 import com.company.Platform.Screen;
 import com.company.system.StringMenuBuilder;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,11 +33,7 @@ public class WelcomeScreen implements Screen {
 
         }catch(Exception ex) {
 
-        } finally {
-            //will always run
-            System.out.println("Finally");
         }
-
         return screen;
     }
 
@@ -46,11 +43,17 @@ public class WelcomeScreen implements Screen {
         switch (i){
             case 1:
                 //LOG.debug("Leaving screen for CustomerScreen");
-                newScreen = new CustomerLoginScreen();
+                try {
+                    newScreen = new CustomerLoginScreen();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
                 break;
             case 2:
                 //LOG.debug("Leaving screen for EmployeeScreen");
-                newScreen = new EmployeeScreen();
+                newScreen = new EmployeeLoginScreen();
                 break;
             default:
         }
