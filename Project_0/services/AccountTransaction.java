@@ -26,7 +26,7 @@ public class AccountTransaction {
         }
         else {
             new_balance = userInfo.getBalance() - amount;
-            System.out.println("Transaction successful. Your new balance is: $" + new_balance);
+            System.out.println("Transaction successful. " + userInfo.getUserName()+ " new balance is: $" + new_balance);
             userInfo.setBalance(new_balance);
             userInfo.setDifference(amount);
             dao.update(userInfo);
@@ -41,7 +41,7 @@ public class AccountTransaction {
         }
         else {
             new_balance = userInfo.getBalance() + amount;
-            System.out.println("Transaction successful. Your new balance is: $" + new_balance);
+            System.out.println("Transaction successful. " + userInfo.getUserName() + " new balance is: $" + new_balance);
             userInfo.setBalance(new_balance);
             userInfo.setDifference(amount);
             dao.update(userInfo);

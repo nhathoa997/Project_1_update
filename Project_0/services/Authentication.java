@@ -30,5 +30,13 @@ public class Authentication {
         }
         return false;
     }
+    public boolean authenticate(String userName) throws SQLException, ClassNotFoundException {
+
+        dao = new UserRepositoryImpl();
+        AccountInfo user = dao.findUserName(userName);
+        if ((user != null)) return true;
+        else return false;
+    }
+
 }
 

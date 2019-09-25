@@ -6,6 +6,7 @@ import com.company.Platform.Screen;
 import com.company.data.dao.UserRepositoryImpl;
 import com.company.system.StringMenuBuilder;
 import services.AccountTransaction;
+import services.Authentication;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
@@ -133,7 +134,21 @@ public class CustomerScreen implements Screen {
                 }
                 break;
             case 4:
-                System.out.println("This function is not available at the moment");
+                System.out.println("Please enter recipient's user name: ");
+                userName = scanner.next();
+                Authentication auth = new Authentication();
+                AccountInfo recipient = dao.findUserName(userName);
+                if (recipient!=null) {
+                    double amount;
+                    System.out.println("Please enter amount: ");
+                    amount = scanner.nextDouble();
+                    transaction.withdrawal(this.userInfo, amount);
+                    transaction.deposit(recipient,amount);
+                    System.out.println("Transaction Complete.");
+                }
+                else if (recipient == null){
+                    System.out.println("Authentication failed. Transaction unsuccessful.");
+                }
                 newScreen = new CustomerScreen(userName);
                 break;
             case 5:

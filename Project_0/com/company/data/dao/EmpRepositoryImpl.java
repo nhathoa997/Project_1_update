@@ -22,7 +22,7 @@ public class EmpRepositoryImpl implements EmpRepository {
         try{
             //Class.forName("org.postgresql.Driver");
             Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE IF not EXISTS EmpAccount(UserName TEXT,Password TEXT");
+            statement.execute("CREATE TABLE IF not EXISTS EmpAccount(UserName TEXT,Password TEXT)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
