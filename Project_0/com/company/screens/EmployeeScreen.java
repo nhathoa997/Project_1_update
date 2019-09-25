@@ -2,7 +2,6 @@ package com.company.screens;
 
 import com.company.Platform.Application;
 import com.company.Platform.Screen;
-import com.company.io.DAOClass;
 import com.company.system.StringMenuBuilder;
 import services.Authentication;
 import services.CreateNewUser;
@@ -12,7 +11,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EmployeeScreen implements Screen {
-    private DAOClass dao = new DAOClass();
     private String userName = "";
     private String password = "";
     private CreateNewUser newUser;

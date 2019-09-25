@@ -19,10 +19,10 @@ public class AccountTransaction {
     }
 
     private double new_balance;
-    private TransactionHistory tranHist = new TransactionHistory();
-    public void withdrawal(AccountInfo userInfo, double amount) throws SQLException {
+    public double withdrawal(AccountInfo userInfo, double amount) throws SQLException {
         if (amount < 0 || ((userInfo.getBalance() - amount) < 0)) {
             System.out.println("Transaction unsuccessful. You enter: $" + amount + ", your balance: $" + userInfo.getBalance());
+            return -1;
         }
         else {
             new_balance = userInfo.getBalance() - amount;
@@ -31,11 +31,13 @@ public class AccountTransaction {
             userInfo.setDifference(amount);
             dao.update(userInfo);
             dao.saveTransaction(userInfo,"Withdrawal");
+            return new_balance;
         }
     }
-    public void deposit(AccountInfo userInfo, double amount) throws SQLException {
+    public double deposit(AccountInfo userInfo, double amount) throws SQLException {
         if (amount <0) {
             System.out.println("Transaction unsuccessful. You enter: $" + amount + ", your balance: $" + userInfo.getBalance());
+            return -1;
         }
         else {
             new_balance = userInfo.getBalance() + amount;
@@ -44,6 +46,7 @@ public class AccountTransaction {
             userInfo.setDifference(amount);
             dao.update(userInfo);
             dao.saveTransaction(userInfo,"Deposit");
+            return new_balance;
         }
     }
 }
