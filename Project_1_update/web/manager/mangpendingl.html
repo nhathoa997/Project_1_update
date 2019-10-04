@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ERS Employee's Home</title>
+    <title>ERS Employee's Reimbursement</title>
 
       <!-- Reference to the Bootstrap CSS file -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
   crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="../app.css">
 
   
 </head>
@@ -21,12 +21,22 @@
             <ul class="navbar-nav mr-auto">
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="manghome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
 
-                <!-- REIMBURSEMENT -->
+                <!-- EMPLOYEE -->
                 <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="emplreimbrst.html">Reimbursements<span class="sr-only">(current)</span></a>
+                    <a class="btn btn-secondary" href="mangemployees.html">Employees<span class="sr-only">(current)</span></a>
+                </li>
+
+                <!-- PENDING LIST -->
+                <li class="nav-item active ml-4">
+                    <a class="btn btn-secondary" href="mangpendingl.html">Pending List<span class="sr-only">(current)</span></a>
+                </li>
+
+                <!-- APPROVED LIST -->
+                <li class="nav-item active ml-4">
+                    <a class="btn btn-secondary" href="mangapprovedl.html">Approved List<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <!-- EMPLOYEE NAME  -->
@@ -35,7 +45,7 @@
                     Employee Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="emplsettings.html">Settings</a>
+                    <a class="dropdown-item" href="mangsettngs.html">Settings</a>
                     <a class="dropdown-item" href="../home.html">Logout</a>
                 </div>
             </div>
@@ -74,7 +84,7 @@
         }
         
         /* Responsive columns */
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 1500px) {
           .column {
             width: 100%;
             display: block;
@@ -98,40 +108,33 @@
                 <table class="table-lef col-md-16">
                         
                         <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
-                        Expense Reimbursements</h3>
+                        Pending Expense Reimbursements List</h3>
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Expense</th>
-                            <th scope="col">Reimbursement</th>
+                            <th scope="col">REIMBURSEMENT</th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">TOTAL AMOUNT</th>
+                            <th scope="col">SUBMITTED DATE</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>ID2345</td>
+                            <td><a href="mangrembrstdl.html">ID2345</a></td>
+                            <td>Relocation to Training</td>
                             <td>$400</td>
+                            <td>9/15/2019</td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>ID0945</td>
-                            <td>$200</td>
+                            <td><a href="mangrembrstdl.html">ID2445</a></td>
+                            <td>Relocation to Training</td>
+                            <td>$300</td>
+                            <td>9/29/2019</td>
                         </tr>
                         </tbody>
                 </table>
             </div>
           </div>
         
-          <div class="column">
-            <div class="card">
-                    <h3 class="text-center col-m-6 font-weight-bold text-uppercase py-4">
-                    Announcements</h3>
-              <p>Some text</p>
-              <p>Some text</p>
-            </div>
-          </div>
-          
-        </div>
 
 
 

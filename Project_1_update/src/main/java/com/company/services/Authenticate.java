@@ -17,6 +17,7 @@ public class Authenticate {
     }
 
     public String authenticate(HttpServletRequest request) throws SQLException, ClassNotFoundException {
+
         String userName = request.getParameter("emp_userName");
         String password = request.getParameter("emp_password");
         String position = "employee";
@@ -30,15 +31,15 @@ public class Authenticate {
             dao = new EmpRepositoryImpl();
             EmployeeInfo user = dao.findUserName(userName);
             if ((user != null) && user.getPassword().equals(password)) return "employeeHomePage.html";
-            else return "LoginPage.html";
+            else return "emplhome.html";
         }
         else if (position.equals("manager")){
             man_dao = new ManagerRepositoryImpl();
             ManagerInfo user = man_dao.findUserName(userName);
             if ((user!= null) && user.getPassword().equals(password)) return "managerHomePage.html";
-            else return "LoginHomePage.html";
+            else return "manghome.html";
         }
-        return "LoginHomePage.html";
+        return "home.html";
     }
     public boolean authenticate(String userName) throws SQLException, ClassNotFoundException {
 

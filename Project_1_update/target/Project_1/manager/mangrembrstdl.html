@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
   crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="../app.css">
 
   
 </head>
@@ -21,7 +21,7 @@
             <ul class="navbar-nav mr-auto">
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="emplhome.html">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="manghome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <!-- EMPLOYEE NAME  -->
@@ -30,16 +30,12 @@
                     Employee Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="emplsettings.html">Settings</a>
+                    <a class="dropdown-item" href="mangsettngs.html">Settings</a>
                     <a class="dropdown-item" href="../home.html">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
-
-
-
-
 
 
         <style>
@@ -93,14 +89,13 @@
                 <table class="table-lef col-md-16">
                         
                         <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
-                        Expense Reimbursements List</h3>
+                        Reimbursement List</h3>
                         <thead>
                         <tr>
                             <th scope="col">REIMBURSEMENT</th>
                             <th scope="col">TYPE</th>
                             <th scope="col">STATUS</th>
                             <th scope="col">TOTAL AMOUNT</th>
-                            <th scope="col">CREATED DATE</th>
                             <th scope="col">SUBMITTED DATE</th>
                         </tr>
                         </thead>
@@ -108,27 +103,21 @@
                         <tr>
                             <td>ID2345</td>
                             <td>Relocation to Training</td>
-                            <td>Submitted</td>
+                            <td>Waiting for Approval</td>
                             <td>$400</td>
-                            <td>9/28/2019</td>
                             <td>9/29/2019</td>
-                        </tr>
-                        <tr>
-                            <td>ID2245</td>
-                            <td>Relocation to Training</td>
-                            <td>Approved</td>
-                            <td>$300</td>
-                            <td>9/20/2019</td>
-                            <td>9/22/2019</td>
                         </tr>
                         </tbody>
                 </table>
             </div>
           </div>
 
-          <div class="text-center">
-                <a href="emplexprdetails.html" class="btn btn-secondary" role="button">+ Create New Expense</a>                           
-            </div>
+        <div class="text-center">
+            <a href="manghome.html" class="btn btn-secondary" role="button">+ Approve</a>                           
+        </div>
+        <div class="text-center">
+            <a href="manghome.html" class="btn btn-secondary" role="button">- Denied</a>                           
+        </div>
         
 
 

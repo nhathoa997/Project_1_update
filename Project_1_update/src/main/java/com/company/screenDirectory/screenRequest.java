@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class screenRequest {
     public String nextScreen(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
         switch(request.getRequestURI()){
-            case "/Project1/Login.do":
+            case "/Project_1_war/LoginServlet":
                 Authenticate auth = new Authenticate();
                 return auth.authenticate(request);
 //            case "/Project1/ViewTable.do":
@@ -20,6 +20,6 @@ public class screenRequest {
 //            case "/Project1/Create.do":
 //                return CreateTable.create(request);
         }
-        return "LoginHomePage.html";
+        return "home.html";
     }
 }

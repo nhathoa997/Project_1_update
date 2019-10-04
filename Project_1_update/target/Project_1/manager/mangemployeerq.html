@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ERS Employee's Home</title>
+
+      <!-- Reference to the Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+  crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- HOME PAGE -->
+                <li class="nav-item active">
+                <a class="btn btn-secondary" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <!-- EMPLOYEE -->
+                <li class="nav-item active ml-4">
+                    <a class="btn btn-secondary" href="mangemployees.html">Employees List<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+            <!-- MANAGER NAME  -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Manager Name
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mangsettngs.html">Settings</a>
+                    <a class="dropdown-item" href="../home.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            /* Float four columns side by side */
+            .column {
+              float: left;
+              width: 45%;
+              padding: 0 40px;
+            }
+            
+            /* Remove extra left and right margins, due to padding */
+            .row {margin: 0 -5px;}
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            /* Responsive columns */
+            @media screen and (max-width: 600px) {
+              .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+              }
+            }
+            
+            /* Style the counter cards */
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              padding: 16px;
+              text-align: center;
+              background-color: #f1f1f1;
+            }
+            </style>
+            
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <!-- EXPE -->
+                    <table class="table-lef col-md-16">
+                            
+                            <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
+                            Reimbursements </h3>
+                            <thead>
+                            <tr>
+                                <th scope="col">Reimbursements</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="mangrembrstdl.html">ID3245</a></td>
+                                <td>09/07/2019</td>
+                            </tr>
+                            <tr>
+                                <td><a href="mangrembrstdl.html">ID2345</a></td>
+                                <td>09/30/2019</td>
+                            </tr>
+                            <tr>
+                                <td><a href="mangrembrstdl.html">ID2365</a></td>
+                                <td>10/03/2019</td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+              </div>
+
+    <!-- jQuery needed for boostrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Has to do with pop ups and drop downs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Actual boostrap files that make boostrap possiable in this pages -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

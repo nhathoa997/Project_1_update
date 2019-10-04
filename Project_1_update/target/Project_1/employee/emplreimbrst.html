@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
   crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="../app.css">
 
   
 </head>
@@ -21,22 +21,7 @@
             <ul class="navbar-nav mr-auto">
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="manghome.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- EMPLOYEE -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangemployees.html">Employees<span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- PENDING LIST -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangpendingl.html">Pending List<span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- APPROVED LIST -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangapprovedl.html">Approved List<span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="emplhome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <!-- EMPLOYEE NAME  -->
@@ -45,7 +30,7 @@
                     Employee Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="mangsettngs.html">Settings</a>
+                    <a class="dropdown-item" href="emplsettings.html">Settings</a>
                     <a class="dropdown-item" href="../home.html">Logout</a>
                 </div>
             </div>
@@ -108,29 +93,42 @@
                 <table class="table-lef col-md-16">
                         
                         <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
-                        Approved List</h3>
+                        Expense Reimbursements List</h3>
                         <thead>
                         <tr>
-                            <th scope="col">MANAGER'S NAME</th>
-                            <th scope="col">REIMBURSEMENT I.D</th>
+                            <th scope="col">REIMBURSEMENT</th>
+                            <th scope="col">TYPE</th>
                             <th scope="col">STATUS</th>
+                            <th scope="col">TOTAL AMOUNT</th>
+                            <th scope="col">CREATED DATE</th>
+                            <th scope="col">SUBMITTED DATE</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Name of manager goes here</td>
-                            <td>ID4356</td>
-                            <td>Approved</td>
+                            <td>ID2345</td>
+                            <td>Relocation to Training</td>
+                            <td>Submitted</td>
+                            <td>$400</td>
+                            <td>9/28/2019</td>
+                            <td>9/29/2019</td>
                         </tr>
                         <tr>
-                            <td>Name of manager goes here</td>
-                            <td>ID4357</td>
+                            <td>ID2245</td>
+                            <td>Relocation to Training</td>
                             <td>Approved</td>
+                            <td>$300</td>
+                            <td>9/20/2019</td>
+                            <td>9/22/2019</td>
                         </tr>
                         </tbody>
                 </table>
             </div>
           </div>
+
+          <div class="text-center">
+                <a href="emplexprdetails.html" class="btn btn-secondary" role="button">+ Create New Expense</a>                           
+            </div>
         
 
 
