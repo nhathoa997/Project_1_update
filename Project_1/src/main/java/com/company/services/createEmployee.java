@@ -13,10 +13,10 @@ public class createEmployee {
     public createEmployee(EmpRepositoryImpl repository) throws SQLException {
         this.repository = repository;
     }
-    public EmployeeInfo create(String userName, String password){
+    public EmployeeInfo create(String userName, String password) throws SQLException {
         this.emp = new EmployeeInfo(userName, password);
         repository.save(emp);
-        System.out.println("A new manager has been created");
+        System.out.println("A new employee has been created");
         return emp;
     }
 }

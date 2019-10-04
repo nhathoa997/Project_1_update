@@ -4,8 +4,10 @@ import com.company.data.EmployeeRepository;
 import com.company.models.EmployeeInfo;
 import com.company.models.reimbursement;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -52,7 +54,48 @@ public class EmpRepositoryImpl implements EmployeeRepository {
         return null;
     }
 
-    public Collection<EmployeeInfo> findAll() {
+//    public void filterByStatus(String status) throws SQLException {
+//        String sql = "SELECT * from ReimbursementTable WHERE Status = '" + status + "'";
+//        Statement statement = conn.createStatement();
+//        statement.execute(sql);
+//        ResultSet results = statement.getResultSet();
+//        while(results.next()){
+//
+//
+//        }
+//
+//    }
+
+    public ArrayList<EmployeeInfo> findAll() {
+        String sql = "SELECT * from EmployeeAccount";
+        String sql2;
+        ArrayList<EmployeeInfo> employees = new ArrayList<>();
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+
+            ResultSet all_employees = statement.getResultSet();
+            while (all_employees.next()){
+                ArrayList<reimbursement> requests = new ArrayList<>();
+                emp = new EmployeeInfo(all_employees.getString("EmployeeName"), all_employees.getString("Password"));
+                sql2 = "SELECT * from ReimbursementTable WHERE EmployeeName = '" + emp.getUserName() + "'";
+                Statement statement2 = conn.createStatement();
+                statement2.execute(sql2);
+                ResultSet requests_per_emp = statement2.getResultSet();
+                while (requests_per_emp.next()){
+                    reimbursement request = new reimbursement(requests_per_emp.getInt("ReimbursementID"),
+                            requests_per_emp.getString("Type"), requests_per_emp.getString("Status"),
+                            requests_per_emp.getDouble("TotalAmount"),requests_per_emp.getString("CreatedDate"),
+                            requests_per_emp.getString("SubmittedDate"));
+                    requests.add(request);
+                }
+                emp.setReimbursementID(requests);
+                employees.add(emp);
+            }
+            return employees;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -23,6 +23,23 @@ public class reimbursement {
         this.createdDate = valnow;
     }
 
+    public reimbursement(Integer reimbursementID, String type, String status, Double totalAmount, String createdDate, String submittedDate){
+        this.reimbursementID = reimbursementID;
+        this.type = type;
+        this.status = status;
+        this.totalAmount = totalAmount;
+        this.createdDate = createdDate;
+        this.submittedDate = submittedDate;
+    }
+    public void reimbursementInfo(){
+        System.out.println(reimbursementID);
+        System.out.println(type);
+        System.out.println(status);
+        System.out.println(totalAmount);
+        System.out.println(createdDate);
+        System.out.println(submittedDate);
+    }
+
     public Integer getReimbursementID() {
         return reimbursementID;
     }

@@ -3,7 +3,7 @@ package com.company.models;
 import com.company.data.dao.EmpRepositoryImpl;
 
 
-
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeInfo {
@@ -11,8 +11,9 @@ public class EmployeeInfo {
     private String password;
     private ArrayList<reimbursement> reimbursementID;
     private String email;
+    EmpRepositoryImpl dao = new EmpRepositoryImpl();
 
-    public EmployeeInfo(String userName, String password) {
+    public EmployeeInfo(String userName, String password) throws SQLException {
         this.reimbursementID = new ArrayList<reimbursement>();
         this.userName = userName;
         this.password = password;
@@ -41,10 +42,18 @@ public class EmployeeInfo {
     public void setReimbursementID(ArrayList<reimbursement> reimbursementID) {
         this.reimbursementID = reimbursementID;
     }
-    public void createRequest(String type, Double totalAmount, EmpRepositoryImpl repository){
+    public void createRequest(String type, Double totalAmount){
         reimbursement request = new reimbursement(type, totalAmount);
         reimbursementID.add(request);
-        repository.saveRequest(this);
+        dao.saveRequest(this);
         System.out.println("A new request has been created.");
     }
+    public void getEmpInfo(){
+        System.out.println(userName);
+        System.out.println(password);
+        for(int i = 0; i < reimbursementID.size(); i++){
+            reimbursementID.get(i).reimbursementInfo();
+        }
+    }
+
 }
