@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ERS Home</title>
+    <!-- Reference to the Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    <!-- Reference to external css design -->
+  <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
+</head>
+
+
+<body class="hm-gradient">
+    
+    <main class="p-3 mb-2 text-gray bg-secondary">
+        
+        <!--HOME PAGE TITLE-->
+        <!-- class="container mt-4" is used so our text is not right again the adge -->
+        <div class="container mt-4">
+            <div class="jumbotron">
+                <div class="text-center darken-grey-text mb-4">
+                    <h1 class="font-bold mt-7 mb-3 h3">Expense Reimbursement System</h1>
+                </div>
+            </div>
+
+            <form id="login-form" method="POST" action="LoginServlet">
+                <!-- EMPLOYEE LOGIN -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center default-text py-3"><i class="fa fa-lock"></i>Employee Login:</h3>
+                                <!--Body-->
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix grey-text"></i>
+                                    <input type="text" name="emp_username" class="form-control">
+                                    <label>Employee User Name</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" name="emp_password" class="form-control">
+                                    <label>Employee password</label>
+                                </div>
+                                <div class="text-center">
+                                    <input type = "submit" value = "Login" class="btn btn-secondary" role="button"></input>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- MANAGER'S LOGIN -->
+<!--                    <div class="col-md-6 mb-4">-->
+<!--                        <div class="card indigo form-white">-->
+<!--                            <div class="card-body">-->
+<!--                                <h3 class="text-center white-text py-3"><i class="fa fa-user"></i>Manager Login:</h3>-->
+<!--                                &lt;!&ndash;Body&ndash;&gt;-->
+<!--                                <div class="md-form">-->
+<!--                                    <i class="fa fa-envelope prefix white-text"></i>-->
+<!--                                    <input type="text" id="manager_userName" class="form-control">-->
+<!--                                    <label for="manager_userName">Manager User Name</label>-->
+<!--                                </div>-->
+<!--                                <div class="md-form">-->
+<!--                                    <i class="fa fa-lock prefix white-text"></i>-->
+<!--                                    <input type="password" id="manager_password" class="form-control">-->
+<!--                                    <label for="manager_password">Manager password</label>-->
+<!--                                </div>-->
+<!--                                <div class="text-center">-->
+<!--                                    <input type = "submit" value = "Login" class="btn btn-secondary" role="button"></input>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                </div>
+            </form>
+
+            
+
+        </div>
+        <!--MDB Forms-->
+      
+    </main>  
+
+    <!-- jQuery needed for boostrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Has to do with pop ups and drop downs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Actual boostrap files that make boostrap possiable in this pages -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -23,5 +23,7 @@ public class Main {
 //        emp.createRequest("Travel",960.56,dao);
 //        WriteToJSON write = new WriteToJSON();
 //        write.write(emp);
+        Authenticate auth = new Authenticate();
+        System.out.println(auth.authenticate("Henry Dinh", "password"));
     }
 }

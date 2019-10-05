@@ -1,5 +1,6 @@
 package com.company.servlet;
 
+import com.company.data.dao.EmpRepositoryImpl;
 import com.company.screenDirectory.screenRequest;
 
 import javax.servlet.ServletConfig;
@@ -32,7 +33,6 @@ public class myServelet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         screenRequest process = new screenRequest();
-        System.out.println(req.getRequestURI());
         try {
             String url = process.nextScreen(req, resp);
             req.getRequestDispatcher(url).forward(req, resp);

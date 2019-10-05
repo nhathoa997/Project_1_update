@@ -1,23 +1,24 @@
 package com.company.data.dao;
 
 
+import com.company.connection.Connection;
 import com.company.data.ManagerRepository;
 import com.company.models.EmployeeInfo;
 import com.company.models.ManagerInfo;
 
-
-
-
 import java.sql.*;
+
+import org.postgresql.Driver;
+
 import java.util.Collection;
+import com.company.connection.*;
 
 public class ManagerRepositoryImpl implements ManagerRepository {
     private ManagerInfo manager;
-    private Connection conn = DriverManager.getConnection("jdbc:postgresql://henrydinh.cdrs9lfdhqu1.us-east-2.rds.amazonaws.com:5432/henrydb?user=henry_dinh&password=Henry8354392.");;
 
     public ManagerRepositoryImpl() throws SQLException {
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = Connection.conn.createStatement();
             statement.execute("CREATE TABLE IF not EXISTS ManagerAccount(ManagerName TEXT,Password TEXT) ");
             statement.execute("CREATE TABLE IF not EXISTS ResolvedCases(ReimbursementID INTEGER,Status TEXT,ManagerName TEXT)");
         } catch (SQLException e) {
@@ -28,7 +29,7 @@ public class ManagerRepositoryImpl implements ManagerRepository {
     public ManagerInfo findUserName(String userName) {
         String sql = "SELECT * from ManagerAccount where ManagerName = '" + userName + "'";
         try {
-            Statement statement = conn.createStatement();
+            Statement statement = Connection.conn.createStatement();
             statement.execute(sql);
 
             ResultSet results = statement.getResultSet();
@@ -55,7 +56,7 @@ public class ManagerRepositoryImpl implements ManagerRepository {
 
     public void save(ManagerInfo manager) {
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = Connection.conn.createStatement();
             String sql = "INSERT INTO ManagerAccount VALUES ('" + manager.getUserName() +"','" + manager.getPassword() + "')";
             statement.execute(sql);
 
@@ -67,7 +68,7 @@ public class ManagerRepositoryImpl implements ManagerRepository {
 
     public void saveUpdate(EmployeeInfo emp, Integer reimbursementID){
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = Connection.conn.createStatement();
 //            int position = 0;
 //            for (int i = 0; i < emp_reimbursement.size(); i++){
 //                if (emp_reimbursement.get(i).getReimbursementID() == reimbursementID){

@@ -17,31 +17,24 @@ public class Authenticate {
     }
 
     public String authenticate(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-
-        String userName = request.getParameter("emp_userName");
+        String userName = request.getParameter("emp_username");
         String password = request.getParameter("emp_password");
         String position = "employee";
-        if (userName == null || password == null){
-            userName = request.getParameter("manager_userName");
-            password = request.getParameter("manager_password");
-            position = "manager";
-        }
-
         if (position.equals("employee")){
-            dao = new EmpRepositoryImpl();
+            this.dao = new EmpRepositoryImpl();
             EmployeeInfo user = dao.findUserName(userName);
-            if ((user != null) && user.getPassword().equals(password)) return "employeeHomePage.html";
-            else return "emplhome.html";
+            if ((user != null) && user.getPassword().equals(password)) return "/employee/emplhome.html";
+            else return "home.html";
         }
         else if (position.equals("manager")){
             man_dao = new ManagerRepositoryImpl();
             ManagerInfo user = man_dao.findUserName(userName);
-            if ((user!= null) && user.getPassword().equals(password)) return "managerHomePage.html";
-            else return "manghome.html";
+            if ((user!= null) && user.getPassword().equals(password)) return "manghome.html";
+            else return "home.html";
         }
         return "home.html";
     }
-    public boolean authenticate(String userName) throws SQLException, ClassNotFoundException {
+    public boolean authenticate(String userName, String password) throws SQLException, ClassNotFoundException {
 
         dao = new EmpRepositoryImpl();
         EmployeeInfo user = dao.findUserName(userName);
