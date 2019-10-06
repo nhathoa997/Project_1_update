@@ -24,6 +24,6 @@ public class Main {
 //        WriteToJSON write = new WriteToJSON();
 //        write.write(emp);
         Authenticate auth = new Authenticate();
-        System.out.println(auth.authenticate("Henry Dinh", "password"));
+        System.out.println(auth.authenticate("Alfredo", "password"));
     }
 }

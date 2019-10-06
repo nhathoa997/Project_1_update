@@ -17,7 +17,6 @@
 <body class="hm-gradient">
     
     <main class="p-3 mb-2 text-gray bg-secondary">
-        
         <!--HOME PAGE TITLE-->
         <!-- class="container mt-4" is used so our text is not right again the adge -->
         <div class="container mt-4">
@@ -26,38 +25,34 @@
                     <h1 class="font-bold mt-7 mb-3 h3">Expense Reimbursement System</h1>
                 </div>
             </div>
-            <form id="emp-form" method="POST" action="emp_clarification">
-                <!-- MAIN HOMEPAGE -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                
-                                <div class="text-center">
-                                    <input type = "submit" value = "Employee" class="btn btn-secondary" role="button"></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <form id="login-form" method="POST" action="manager_Login">
+                
+                    <!-- MANAGER'S LOGIN -->
+                   <div class="col-md-6 mb-4">
+                       <div class="card indigo form-white">
+                           <div class="card-body">
+                               <h3 class="text-center white-text py-3"><i class="fa fa-user"></i>Manager Login:</h3>
+                            
+                               <div class="md-form">
+                                   <i class="fa fa-envelope prefix white-text"></i>
+                                   <input type="text" name="manager_userName" class="form-control">
+                                   <label>Manager User Name</label>
+                               </div>
+                               <div class="md-form">
+                                   <i class="fa fa-lock prefix white-text"></i>
+                                   <input type="password" name="manager_password" class="form-control">
+                                   <label>Manager password</label>
+                               </div>
+                               <div class="text-center">
+                                   <input type = "submit" value = "Login" class="btn btn-secondary" role="button"></input>
+                               </div>
+                           </div>
+                     </div>
+                   </div>
             </form>
-            <form id="manager-form" method="POST" action="manager_clarification">
-                <!-- MAIN HOMEPAGE -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                
-                                <div class="text-center">
-                                    <input type = "submit" value = "Manager" class="btn btn-secondary" role="button"></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
-            </form>
 
             
 

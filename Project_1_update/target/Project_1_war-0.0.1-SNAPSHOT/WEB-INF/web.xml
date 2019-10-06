@@ -5,15 +5,48 @@
          version="4.0">
     <display-name>Reimbursement Application</display-name>
     <welcome-file-list>
-    <welcome-file>home.html</welcome-file>
+        <welcome-file>home.html</welcome-file>
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>MasterServlet</servlet-name>
-        <servlet-class>com.company.servlet.myServelet</servlet-class>
+        <servlet-name>emp_clarification</servlet-name>
+        <servlet-class>com.company.servlet.emp_clarification</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MasterServlet</servlet-name>
+        <servlet-name>emp_clarification</servlet-name>
+        <url-pattern>/emp_clarification/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>manager_clarification</servlet-name>
+        <servlet-class>com.company.servlet.manager_clarification</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manager_clarification</servlet-name>
+        <url-pattern>/manager_clarification/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>emp_Login</servlet-name>
+        <servlet-class>com.company.servlet.emp_Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>emp_Login</servlet-name>
+        <url-pattern>/emp_Login/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>manager_Login</servlet-name>
+        <servlet-class>com.company.servlet.manager_Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manager_Login</servlet-name>
+        <url-pattern>/manager_Login/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>myServlet</servlet-name>
+        <servlet-class>com.company.servlet.myServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 </web-app>

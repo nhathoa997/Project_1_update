@@ -10,9 +10,16 @@ import java.sql.SQLException;
 public class screenRequest {
     public String nextScreen(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
         switch(request.getRequestURI()){
-            case "/Project_1_war/LoginServlet":
+            case "/Project_1_war/emp_clarification":
+                return "/employee/employeeLogin.html";
+            case "/Project_1_war/manager_clarification":
+                return "/manager/managerLogin.html";
+            case "/Project_1_war/emp_Login":
                 Authenticate auth = new Authenticate();
-                return auth.authenticate(request);
+                return auth.authenticate(request, "employee");
+            case "/Project_1_war/manager_Login":
+                Authenticate auth2 = new Authenticate();
+                return auth2.authenticate(request, "manager");
 //            case "/Project1/ViewTable.do":
 //                return ViewTable.view(request);
 //            case "/Project1/Update.do":

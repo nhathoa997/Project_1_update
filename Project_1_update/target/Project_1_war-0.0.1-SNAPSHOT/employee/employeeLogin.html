@@ -26,33 +26,30 @@
                     <h1 class="font-bold mt-7 mb-3 h3">Expense Reimbursement System</h1>
                 </div>
             </div>
-            <form id="emp-form" method="POST" action="emp_clarification">
-                <!-- MAIN HOMEPAGE -->
+
+            <form id="login-form" method="POST" action="emp_Login">
+                <!-- EMPLOYEE LOGIN -->
                 <div class="row">
                     <!-- Grid column -->
                     <div class="col-md-6 mb-4">
                         <div class="card">
                             <div class="card-body">
-                                
-                                <div class="text-center">
-                                    <input type = "submit" value = "Employee" class="btn btn-secondary" role="button"></input>
+                                <h3 class="text-center default-text py-3"><i class="fa fa-lock"></i>Employee Login:</h3>
+                                <!--Body-->
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix grey-text"></i>
+                                    <input type="text" name="emp_username" class="form-control">
+                                    <label>Employee User Name</label>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <form id="manager-form" method="POST" action="manager_clarification">
-                <!-- MAIN HOMEPAGE -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                
-                                <div class="text-center">
-                                    <input type = "submit" value = "Manager" class="btn btn-secondary" role="button"></input>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" name="emp_password" class="form-control">
+                                    <label>Employee password</label>
                                 </div>
+                                <div class="text-center">
+                                    <input type = "submit" value = "Login" class="btn btn-secondary" role="button"></input>
+                                </div>
+
                             </div>
                         </div>
                     </div>
