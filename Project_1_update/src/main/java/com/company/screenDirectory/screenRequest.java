@@ -1,5 +1,6 @@
 package com.company.screenDirectory;
 
+import com.company.Tables.ViewReimbursementTable;
 import com.company.services.Authenticate;
 
 import javax.servlet.http.HttpServlet;
@@ -20,8 +21,8 @@ public class screenRequest {
             case "/Project_1_war/manager_Login":
                 Authenticate auth2 = new Authenticate();
                 return auth2.authenticate(request, "manager");
-//            case "/Project1/ViewTable.do":
-//                return ViewTable.view(request);
+            case "/Project_1_war/viewTable":
+                return ViewReimbursementTable.viewTable(request, response);
 //            case "/Project1/Update.do":
 //                return UpdateTable.update(request);
 //            case "/Project1/Create.do":

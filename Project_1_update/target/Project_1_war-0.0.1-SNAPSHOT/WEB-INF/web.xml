@@ -40,6 +40,14 @@
         <servlet-name>manager_Login</servlet-name>
         <url-pattern>/manager_Login/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>viewTable</servlet-name>
+        <servlet-class>com.company.servlet.viewTable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewTable</servlet-name>
+        <url-pattern>/viewTable/*</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>myServlet</servlet-name>

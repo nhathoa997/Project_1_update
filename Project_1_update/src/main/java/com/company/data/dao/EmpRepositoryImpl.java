@@ -33,21 +33,36 @@ public class EmpRepositoryImpl implements EmployeeRepository {
 
     public EmployeeInfo findUserName(String EmployeeName) {
         String sql = "SELECT * from EmployeeAccount where EmployeeName = '" + EmployeeName + "'";
+        String sql2;
         try {
             Statement statement = Connection.conn.createStatement();
             statement.execute(sql);
 
-            ResultSet results = statement.getResultSet();
-            if (results.next()){
-                emp = new EmployeeInfo(results.getString("EmployeeName"), results.getString("Password"));
-                return emp;
+            ResultSet all_employees = statement.getResultSet();
+            while (all_employees.next()){
+                ArrayList<reimbursement> requests = new ArrayList<>();
+                emp = new EmployeeInfo(all_employees.getString("EmployeeName"), all_employees.getString("Password"));
+                sql2 = "SELECT * from ReimbursementTable WHERE EmployeeName = '" + emp.getUserName() + "'";
+                Statement statement2 = Connection.conn.createStatement();
+                statement2.execute(sql2);
+                ResultSet requests_per_emp = statement2.getResultSet();
+                while (requests_per_emp.next()){
+                    reimbursement request = new reimbursement(requests_per_emp.getInt("ReimbursementID"),
+                            requests_per_emp.getString("Type"), requests_per_emp.getString("Status"),
+                            requests_per_emp.getDouble("TotalAmount"),requests_per_emp.getString("CreatedDate"),
+                            requests_per_emp.getString("SubmittedDate"));
+                    requests.add(request);
+                }
+                emp.setReimbursementID(requests);
             }
-
+            return emp;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
+    }
+    public String findUserJson(String userName){
+        return "C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_1_update\\src\\main\\java\\com\\company\\Json\\" + userName + ".txt";
     }
 
 
@@ -55,17 +70,7 @@ public class EmpRepositoryImpl implements EmployeeRepository {
         return null;
     }
 
-//    public void filterByStatus(String status) throws SQLException {
-//        String sql = "SELECT * from ReimbursementTable WHERE Status = '" + status + "'";
-//        Statement statement = conn.createStatement();
-//        statement.execute(sql);
-//        ResultSet results = statement.getResultSet();
-//        while(results.next()){
 //
-//
-//        }
-//
-//    }
 
     public ArrayList<EmployeeInfo> findAll() {
         String sql = "SELECT * from EmployeeAccount";

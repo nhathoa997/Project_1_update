@@ -5,16 +5,17 @@ import com.company.data.dao.EmpRepositoryImpl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeInfo {
     private String userName;
     private String password;
-    private ArrayList<reimbursement> reimbursementID;
+    private List<reimbursement> reimbursementID;
     private String email;
     EmpRepositoryImpl dao = new EmpRepositoryImpl();
 
     public EmployeeInfo(String userName, String password) throws SQLException {
-        this.reimbursementID = new ArrayList<reimbursement>();
+        this.reimbursementID = new ArrayList<>();
         this.userName = userName;
         this.password = password;
     }
@@ -35,7 +36,7 @@ public class EmployeeInfo {
         this.password = password;
     }
 
-    public ArrayList<reimbursement> getReimbursementID() {
+    public List<reimbursement> getReimbursementID() {
         return reimbursementID;
     }
 

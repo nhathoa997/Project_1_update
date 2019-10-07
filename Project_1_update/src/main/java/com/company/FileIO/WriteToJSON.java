@@ -13,29 +13,30 @@ public class WriteToJSON {
     public void write(EmployeeInfo emp){
 
         JSONObject employeeRequestDetails = new JSONObject();
-        ArrayList<JSONObject> employeeRequests = new ArrayList<>();
-        JSONObject employeeDetails = new JSONObject();
-        JSONObject employeeObject = new JSONObject();
+        JSONArray employeeRequests = new JSONArray();
+//        JSONObject employeeDetails = new JSONObject();
+//        JSONObject employeeObject = new JSONObject();
         for(int i = 0; i < emp.getReimbursementID().size(); i++){
-            employeeRequestDetails.put("Reimbursement ID",emp.getReimbursementID().get(i).getReimbursementID());
+            employeeRequestDetails.put("ReimbursementID",emp.getReimbursementID().get(i).getReimbursementID());
             employeeRequestDetails.put("Type",emp.getReimbursementID().get(i).getType());
             employeeRequestDetails.put("Status",emp.getReimbursementID().get(i).getStatus());
-            employeeRequestDetails.put("Total Amount",emp.getReimbursementID().get(i).getTotalAmount());
-            employeeRequestDetails.put("Created Date",emp.getReimbursementID().get(i).getCreatedDate());
-            employeeRequestDetails.put("Submitted Date",emp.getReimbursementID().get(i).getSubmittedDate());
+            employeeRequestDetails.put("TotalAmount",emp.getReimbursementID().get(i).getTotalAmount());
+            employeeRequestDetails.put("CreatedDate",emp.getReimbursementID().get(i).getCreatedDate());
+            employeeRequestDetails.put("SubmittedDate",emp.getReimbursementID().get(i).getSubmittedDate());
             employeeRequests.add(employeeRequestDetails);
             employeeRequestDetails = new JSONObject();
         }
-        employeeDetails.put("Name", emp.getUserName());
-        employeeDetails.put("Password", emp.getPassword());
-        employeeDetails.put("Requests", employeeRequests);
-        employeeObject.put("Employee", employeeDetails);
+//        employeeDetails.put("Name", emp.getUserName());
+//        employeeDetails.put("Password", emp.getPassword());
+//        employeeDetails.put("Requests", employeeRequests);
+//        employeeObject.put("Employee", employeeDetails);
 
-        JSONArray employeeList = new JSONArray();
-        employeeList.add(employeeObject);
-        try (FileWriter file = new FileWriter("C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_1\\src\\main\\java\\com\\company\\Json\\employees.json")) {
+//        JSONArray employeeList = new JSONArray();
+//        employeeList.add(employeeObject);
+        try (FileWriter file = new FileWriter("C:\\Users\\dinhh\\1908-aug09-java-aug\\Project_1_update\\src\\main\\java\\com\\company\\Json\\"
+                + emp.getUserName() + ".txt")) {
             System.out.println("Data have been written to the Json File");
-            file.write(employeeList.toJSONString());
+            file.write(employeeRequests.toJSONString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();

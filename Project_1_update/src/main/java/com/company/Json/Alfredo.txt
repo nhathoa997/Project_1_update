@@ -1,0 +1,1 @@
+[{"Status":"Approved","Type":"Certification","ReimbursementID":5622779,"CreatedDate":"30\/09\/2019 10:45:03","TotalAmount":350.5,"SubmittedDate":"30\/09\/2019 10:46:31"}]
