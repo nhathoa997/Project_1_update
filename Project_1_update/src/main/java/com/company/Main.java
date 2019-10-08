@@ -26,9 +26,12 @@ public class Main {
 //        Authenticate auth = new Authenticate();
 //        System.out.println(auth.authenticate("Alfredo", "password"));
         EmpRepositoryImpl dao = new EmpRepositoryImpl();
-        EmployeeInfo emp = dao.findUserName("Takeda Shingen");
-        emp.getEmpInfo();
-        WriteToJSON write = new WriteToJSON();
-        write.write(emp);
+//        createEmployee newEmp = new createEmployee(dao);
+//        EmployeeInfo emp = newEmp.create("Oda Nobunaga", "password");
+
+//        EmployeeInfo emp = dao.findUserName("Oda Nobunaga");
+//        emp.createRequest("Certification", 560.35);
+//        WriteToJSON write = new WriteToJSON();
+//        write.write(emp);
     }
 }

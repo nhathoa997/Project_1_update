@@ -20,12 +20,12 @@
             <ul class="navbar-nav mr-auto">
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="emplhome.html">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="/Project_1_war/employee/emplhome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
 
                 <!-- REIMBURSEMENT -->
                 <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="emplreimbrst.html">Reimbursement<span class="sr-only">(current)</span></a>
+                    <a class="btn btn-secondary" href="/Project_1_war/employee/emplreimbrst.html">Reimbursement<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <!-- EMPLOYEE NAME  -->
@@ -34,9 +34,10 @@
                     Employee Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="emplsettings.html">Settings</a>
-                    <a class="dropdown-item" href="../home.html">Logout</a>
+                    <a class="dropdown-item" href="/Project_1_war/employee/empsettings.html">Settings</a>
+                    <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
                 </div>
+
             </div>
         </div>
     </nav>
@@ -96,54 +97,54 @@
                         <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
                         Expense Reimbursement Request Creation</h3>
                         <thead>
-                        <tr>
-                            <th scope="col">REIMBURSEMENT ID</th>
-                            <th scope="col">TYPE</th>
-                            <th scope="col">STATUS</th>
-                            <th scope="col">CREATED DATE</th>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <th scope="col">REIMBURSEMENT ID</th>-->
+<!--                            <th scope="col">TYPE</th>-->
+<!--                            <th scope="col">STATUS</th>-->
+<!--                            <th scope="col">CREATED DATE</th>-->
+<!--                        </tr>-->
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>ID2345</td>
-                            <td>Certification</td>
-                            <td>Created</td>
-                            <td>03/12/2019</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>ID2345</td>-->
+<!--                            <td>Certification</td>-->
+<!--                            <td>Created</td>-->
+<!--                            <td>03/12/2019</td>-->
+<!--                        </tr>-->
                         </tbody>
                 </table>
             </div>
           </div>
-
-          <!-- EXPENSE SUBMITIONS BLOCK -->
-          <div class="row">
-                <div class="column">
-                  <div class="card">
-                    
-                      <table class="table-lef col-md-16"> 
-                              <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
-                              Create</h3>
-                              <thead>
-                              <tr>
-                                  <th scope="col">PURPOSE</th>
-                                  <th scope="col">AMOUNT</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <form>
-                                  <td><input class="form-control" type="text" name="username" placeholder="purpose" value="purpose"></td>
-                                  <td><input class="form-control" type="text" name="username" placeholder="amount" value="amount"></td>
-                                  </form>
-                              </tr>
-                              </tbody>
-                      </table>
-                  </div>
-                </div> 
-                
-                <div class="text-center">
-                    <a href="emplhome.html" class="btn btn-secondary" role="button">Submit</a>
+            <form method="post" action="createRequest">
+                <!-- EXPENSE SUBMITIONS BLOCK -->
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <table class="table-lef col-md-16">
+                                <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
+                                    Create</h3>
+                                <thead>
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">AMOUNT</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <form>
+                                        <td><input class="form-control" type="text" name="type" placeholder="type" value="type"></td>
+                                        <td><input class="form-control" type="text" name="amount" placeholder="amount" value="amount"></td>
+                                    </form>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit"  class="btn btn-secondary" value = "Submit" role="button"></input>
+                    </div>
                 </div>
+            </form>
         </div>
         
 

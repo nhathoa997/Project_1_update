@@ -19,18 +19,15 @@ public class ViewReimbursementTable {
         EmpRepositoryImpl dao = new EmpRepositoryImpl();
         EmployeeInfo user = (EmployeeInfo)request.getSession().getAttribute("User");
         List<reimbursement> reims = user.getReimbursementID();
-        WriteToJSON write = new WriteToJSON();
-        write.write(user);
+//        WriteToJSON write = new WriteToJSON();
+//        write.write(user);
         System.out.println("Hey I was at view table");
-
-
-
         try {
             response.getWriter().write(new ObjectMapper().writeValueAsString(reims));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/employee/emplreimbrst.html";//dao.findUserJson(user.getUserName());
+        return "/employee/emplreimbrst.html";
 
     }
 }

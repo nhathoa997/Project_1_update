@@ -24,7 +24,6 @@ public class Authenticate {
             password = request.getParameter("emp_password");
             this.dao = new EmpRepositoryImpl();
             EmployeeInfo user = dao.findUserName(userName);
-            System.out.println("Hey I'm here");
             if ((user != null) && user.getPassword().equals(password)) {
                 request.getSession().setAttribute("User", user);
                 return "/employee/emplhome.html";

@@ -1,7 +1,9 @@
 package com.company.screenDirectory;
 
 import com.company.Tables.ViewReimbursementTable;
+import com.company.models.EmployeeInfo;
 import com.company.services.Authenticate;
+import com.company.services.UpdateInfo;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,21 @@ public class screenRequest {
                 return auth2.authenticate(request, "manager");
             case "/Project_1_war/viewTable":
                 return ViewReimbursementTable.viewTable(request, response);
+            case "/Project_1_war/redirectSettings":
+                return "/employee/emplsettings.html";
+            case "/Project_1_war/updateInformation":
+                UpdateInfo update = new UpdateInfo();
+                return update.update(request,"employee");
+            case "/Project_1_war/createRequest":
+                EmployeeInfo user = (EmployeeInfo)request.getSession().getAttribute("User");
+                user.createRequest(request.getParameter("type"),Double.parseDouble(request.getParameter("amount")));
+                return "/employee/emplhome.html";
+            case "/Project_1_war/redirectToCreate":
+                return "/employee/emplexprdetails.html";
+            case "/Project_1_war/redirectReimbursement":
+                return "/employee/emplreimbrst.html";
+            case "/Project_1_war/redirectManagerSettings":
+                return "/manager/mangsettngs.html";
 //            case "/Project1/Update.do":
 //                return UpdateTable.update(request);
 //            case "/Project1/Create.do":

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="/Project_1_war/app.css">
 
   
 </head>
@@ -23,18 +23,20 @@
             <ul class="navbar-nav mr-auto">
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="emplhome.html">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="/Project_1_war/employee/emplhome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <!-- EMPLOYEE NAME  -->
-            <div class="dropdown">
+            <div class="dropdown" style = "position: relative; left: 50px">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Employee Name
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="emplsettings.html">Settings</a>
-                    <a class="dropdown-item" href="../home.html">Logout</a>
-                </div>
+                <form method="post" action="redirectSettings">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input type= "submit" class="dropdown-item" value = "Settings"></input>
+                        <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
+                    </div>
+                </form>
             </div>
         </div>
     </nav>
@@ -94,43 +96,27 @@
               <!-- EXPE -->
                 <table class="table-lef col-md-16" id = "reimbursement Table">
                         
-                        <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
+                        <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4" }>
                         Expense Reimbursements List</h3>
-                        <thead>
                         <tr>
-                            <th scope="col">REIMBURSEMENT</th>
-                            <th scope="col">TYPE</th>
-                            <th scope="col">STATUS</th>
-                            <th scope="col">TOTAL AMOUNT</th>
-                            <th scope="col">CREATED DATE</th>
-                            <th scope="col">SUBMITTED DATE</th>
+                            <th scope="col" style = "position: relative; left: 80px" >REIMBURSEMENT ID</th>
+                            <th scope="col" style = "position: relative; left: 50px">TYPE</th>
+                            <th scope="col" style = "position: relative; left: 35px">STATUS</th>
+                            <th scope="col" style = "position: relative; left: 60px">TOTAL AMOUNT</th>
+                            <th scope="col" style = "position: relative; left: 80px">CREATED DATE</th>
+                            <th scope="col" style = "position: relative; left: 80px">SUBMITTED DATE</th>
                         </tr>
                         </thead>
                         <tbody>
-<!--                        <tr>-->
-<!--                            <td>ID2345</td>-->
-<!--                            <td>Relocation to Training</td>-->
-<!--                            <td>Submitted</td>-->
-<!--                            <td>$400</td>-->
-<!--                            <td>9/28/2019</td>-->
-<!--                            <td>9/29/2019</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>ID2245</td>-->
-<!--                            <td>Relocation to Training</td>-->
-<!--                            <td>Approved</td>-->
-<!--                            <td>$300</td>-->
-<!--                            <td>9/20/2019</td>-->
-<!--                            <td>9/22/2019</td>-->
-<!--                        </tr>-->
                         </tbody>
                 </table>
             </div>
           </div>
-
-          <div class="text-center">
-                <a href="emplexprdetails.html" class="btn btn-secondary" role="button">+ Create New Expense</a>                           
-            </div>
+            <form method="post" action="redirectToCreate">
+                <div class="text-center">
+                    <input type="submit"  class="btn btn-secondary" value = "Create New Expense" role="button"></input>
+                </div>
+            </form>
         </div>
     <script type = "text/javascript">
         (window.onload = () => {
@@ -156,15 +142,13 @@
                     let td = tr.appendChild(document.createElement('td'));
                     td.innerHTML = values[j];
                 }
-                tr.addEventListener('click', (url) => {
-                    popUpWindow = window.open('', 'popUpWindow', 'height=350,width=400,left=1450,top=200,resizable=0,scrollbars=0,toolbar=0,menubar=0,location=0,directories=0,status=yes');
-                    popUpWindow.document.write('<h1>Description:</h1>');
-                    popUpWindow.document.write(reim[i].description);
-                    setTimeout(() => {
-                        popUpWindow.close();
-                    }, 5000);
-                });
             }
+                // tr.addEventListener('click', (url) => {
+                //     popUpWindow = window.open('', 'popUpWindow', 'height=350,width=400,left=1450,top=200,resizable=0,scrollbars=0,toolbar=0,menubar=0,location=0,directories=0,status=yes');
+                //     popUpWindow.document.write('<h1>Description:</h1>');
+                //     popUpWindow.document.write(reim[i].description);
+                //     setTimeout(() => { popUpWindow.close(); }, 5000);
+                // });
         }
     </script>
 

@@ -48,6 +48,55 @@
         <servlet-name>viewTable</servlet-name>
         <url-pattern>/viewTable/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>updateInformation</servlet-name>
+        <servlet-class>com.company.servlet.updateInformation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateInformation</servlet-name>
+        <url-pattern>/updateInformation/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectSettings</servlet-name>
+        <servlet-class>com.company.servlet.redirectSettings</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectSettings</servlet-name>
+        <url-pattern>/redirectSettings/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>createRequest</servlet-name>
+        <servlet-class>com.company.servlet.createRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createRequest</servlet-name>
+        <url-pattern>/createRequest/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectToCreate</servlet-name>
+        <servlet-class>com.company.servlet.redirectToCreate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectToCreate</servlet-name>
+        <url-pattern>/redirectToCreate/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectReimbursement</servlet-name>
+        <servlet-class>com.company.servlet.redirectReimbursement</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectReimbursement</servlet-name>
+        <url-pattern>/redirectReimbursement/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectManagerSettings</servlet-name>
+        <servlet-class>com.company.servlet.redirectManagerSettings</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectManagerSettings</servlet-name>
+        <url-pattern>/redirectManagerSettings/*</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>myServlet</servlet-name>

@@ -19,15 +19,16 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+
                 <!-- HOME PAGE -->
                 <li class="nav-item active">
-                <a class="btn btn-secondary" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary" href="/Project_1_war/employee/emplhome.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <form id="login-form" method="POST" action="viewTable">
+                <form method="post" action="redirectReimbursement">
                     <!-- REIMBURSEMENT -->
                     <li class="nav-item active ml-4">
-                        <input type = "Submit" class="btn btn-secondary" value = "Reimbursements">
-                            Reimbursements<span class="sr-only">(current)</span></submit>
+                        <input type="submit" class="btn btn-secondary" value="Reimbursements">
+                            Reimbursements<span class="sr-only">(current)</span></input>
                     </li>
                 </form>
             </ul>
@@ -36,10 +37,12 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Employee Name
                 </button>
+                <form method="post" action="redirectSettings">
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/Project_1_war/employee/emplsettings.html">Settings</a>
-                    <a class="dropdown-item" href="home.html">Logout</a>
+                    <input type = "submit" class="dropdown-item" value = "Settings"></input>
+                    <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
                 </div>
+                </form>
             </div>
         </div>
     </nav>
