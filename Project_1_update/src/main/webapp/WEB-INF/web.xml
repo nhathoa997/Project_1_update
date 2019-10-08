@@ -96,6 +96,39 @@
         <servlet-name>redirectManagerSettings</servlet-name>
         <url-pattern>/redirectManagerSettings/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectManagerHome</servlet-name>
+        <servlet-class>com.company.servlet.redirectManagerHome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectManagerHome</servlet-name>
+        <url-pattern>/redirectManagerHome/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectEmployees</servlet-name>
+        <servlet-class>com.company.servlet.redirectEmployees</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectEmployees</servlet-name>
+        <url-pattern>/redirectEmployees/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectPending</servlet-name>
+        <servlet-class>com.company.servlet.redirectPending</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectPending</servlet-name>
+        <url-pattern>/redirectPending/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>viewApproved</servlet-name>
+        <servlet-class>com.company.servlet.viewApproved</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewApproved</servlet-name>
+        <url-pattern>/viewApproved/*</url-pattern>
+    </servlet-mapping>
+
 
 
     <servlet>

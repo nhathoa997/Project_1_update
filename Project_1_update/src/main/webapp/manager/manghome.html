@@ -15,25 +15,30 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <!-- HOME PAGE -->
-                <li class="nav-item active">
-                <a class="btn btn-secondary" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- EMPLOYEE -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangemployees.html">Employees<span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- PENDING LIST -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangpendingl.html">Pending List<span class="sr-only">(current)</span></a>
-                </li>
-
-                <!-- APPROVED LIST -->
-                <li class="nav-item active ml-4">
-                    <a class="btn btn-secondary" href="mangapprovedl.html">Approved List<span class="sr-only">(current)</span></a>
-                </li>
+                <form method="post" action="redirectManagerHome">
+                    <!-- HOME PAGE -->
+                    <li class="nav-item active">
+                        <input type = "submit" class="btn btn-secondary" value = "Home"><span class="sr-only">(current)</span></input>
+                    </li>
+                </form>
+                <form method="post" action="redirectEmployees">
+                    <!-- EMPLOYEE -->
+                    <li class="nav-item active ml-4">
+                        <input type="submit" class="btn btn-secondary" value="View Employees"><span class="sr-only">(current)</span></input>
+                    </li>
+                </form>
+                <form method="post" action="redirectPending">
+                    <!-- PENDING LIST -->
+                    <li class="nav-item active ml-4">
+                        <input type="submit" class="btn btn-secondary" value = "View Pending List"><span class="sr-only">(current)</span></input>
+                    </li>
+                </form>
+                <form method="post" action="viewApproved">
+                    <!-- APPROVED LIST -->
+                    <li class="nav-item active ml-4">
+                        <input type="submit" class="btn btn-secondary" value="View Resolved List"><span class="sr-only">(current)</span></input>
+                    </li>
+                </form>
             </ul>
 
             <!-- MANAGER NAME  -->
@@ -43,7 +48,7 @@
                 </button>
                 <form method="post" action="redirectManagerSettings">
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <input type="submit" class="dropdown-item" value = "Settings"</a>
+                        <input type="submit" class="dropdown-item" value = "Settings"></input>
                         <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
                     </div>
                 </form>

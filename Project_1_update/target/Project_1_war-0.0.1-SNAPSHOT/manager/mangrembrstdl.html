@@ -19,20 +19,24 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <!-- HOME PAGE -->
-                <li class="nav-item active">
-                <a class="btn btn-secondary" href="manghome.html">Home <span class="sr-only">(current)</span></a>
-                </li>
+                <form method="post" action="redirectManagerHome">
+                    <!-- HOME PAGE -->
+                    <li class="nav-item active">
+                        <input type="submit" class="btn btn-secondary" value="Home"><span class="sr-only">(current)</span></input>
+                    </li>
+                </form>
             </ul>
             <!-- EMPLOYEE NAME  -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Employee Name
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="mangsettngs.html">Settings</a>
-                    <a class="dropdown-item" href="../home.html">Logout</a>
-                </div>
+                <form method="post" action="redirectManagerSettings">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input type="submit" class="dropdown-item" value = "Settings"></input>
+                        <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
+                    </div>
+                </form>
             </div>
         </div>
     </nav>

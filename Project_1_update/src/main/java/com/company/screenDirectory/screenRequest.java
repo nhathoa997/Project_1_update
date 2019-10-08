@@ -40,6 +40,14 @@ public class screenRequest {
                 return "/employee/emplreimbrst.html";
             case "/Project_1_war/redirectManagerSettings":
                 return "/manager/mangsettngs.html";
+            case "/Project_1_war/redirectManagerHome":
+                return "/manager/manghome.html";
+            case "/Project_1_war/redirectEmployees":
+                return "/manager/mangemployees.html";
+            case "/Project_1_war/redirectPending":
+                return "/manager/mangpendingl.html";
+            case "/Project_1_war/viewApproved":
+                return "/manager/mangapprovedl.html";
 //            case "/Project1/Update.do":
 //                return UpdateTable.update(request);
 //            case "/Project1/Create.do":
