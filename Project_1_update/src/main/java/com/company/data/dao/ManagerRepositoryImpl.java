@@ -65,6 +65,16 @@ public class ManagerRepositoryImpl implements ManagerRepository {
             e.printStackTrace();
         }
     }
+    public void updatePassword(ManagerInfo manager){
+        try{
+            Statement statement = Connection.conn.createStatement();
+            String sql = "UPDATE manageraccount SET Password = '" + manager.getPassword() +"' WHERE managername = '"
+                    + manager.getUserName() + "'";
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void saveUpdate(EmployeeInfo emp, Integer reimbursementID){
         try{

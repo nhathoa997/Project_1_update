@@ -11,6 +11,7 @@ import com.company.services.createManager;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class Main {
@@ -33,5 +34,8 @@ public class Main {
 //        emp.createRequest("Certification", 560.35);
 //        WriteToJSON write = new WriteToJSON();
 //        write.write(emp);
+        for(int i = 0; i < dao.findEmpNames().size(); i++) {
+            System.out.println(dao.findEmpNames().get(i));
+        }
     }
 }

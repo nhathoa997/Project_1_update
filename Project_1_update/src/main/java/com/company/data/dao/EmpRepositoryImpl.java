@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import org.postgresql.Driver;
 import com.company.connection.*;
 public class EmpRepositoryImpl implements EmployeeRepository {
@@ -70,8 +72,23 @@ public class EmpRepositoryImpl implements EmployeeRepository {
         return null;
     }
 
-//
+    public ArrayList<String> findEmpNames(){
+        String sql = "SELECT employeename from employeeaccount";
+        ArrayList<String> names = new ArrayList<>();
+        try {
+            Statement statement = Connection.conn.createStatement();
+            statement.execute(sql);
+            ResultSet all_employees_names = statement.getResultSet();
+            while(all_employees_names.next()){
+                names.add(all_employees_names.getString("employeename"));
+            }
 
+            return names;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public ArrayList<EmployeeInfo> findAll() {
         String sql = "SELECT * from EmployeeAccount";
         String sql2;
@@ -115,6 +132,17 @@ public class EmpRepositoryImpl implements EmployeeRepository {
         }
 
     }
+    public void updatePassword(EmployeeInfo emp){
+        try{
+            Statement statement = Connection.conn.createStatement();
+            String sql = "UPDATE employeeaccount SET Password = '" + emp.getPassword() +"' WHERE employeename = '"
+                    + emp.getUserName() + "'";
+            statement.execute(sql);
+            System.out.println("Hey I was here at dao");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void saveRequest(EmployeeInfo emp) {
         try{
             if (emp.getReimbursementID().size() >= 1){
@@ -132,7 +160,54 @@ public class EmpRepositoryImpl implements EmployeeRepository {
         }
 
     }
-
+    public ArrayList<List> viewPendingList(){
+        String sql = "SELECT * from reimbursementtable WHERE status = 'Pending'";
+        ArrayList<List> pending_lst = new ArrayList<>();
+        try {
+            Statement statement = Connection.conn.createStatement();
+            statement.execute(sql);
+            ResultSet results = statement.getResultSet();
+            while(results.next()){
+                List req_info = new ArrayList();
+                req_info.add(results.getString("employeename"));
+                req_info.add(results.getInt("ReimbursementID"));
+                req_info.add(results.getString("Type"));
+                req_info.add(results.getString("Status"));
+                req_info.add(results.getDouble("TotalAmount"));
+                req_info.add(results.getString("CreatedDate"));
+                req_info.add(results.getString("SubmittedDate"));
+                pending_lst.add(req_info);
+            }
+            return pending_lst;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<List> viewResolvedList(){
+        String sql = "SELECT * from reimbursementtable WHERE status = 'Approved' or status = 'Declined'";
+        ArrayList<List> resolved_lst = new ArrayList<>();
+        try {
+            Statement statement = Connection.conn.createStatement();
+            statement.execute(sql);
+            ResultSet results = statement.getResultSet();
+            while(results.next()){
+                List req_info = new ArrayList();
+                req_info.add(results.getString("employeename"));
+                req_info.add(results.getInt("ReimbursementID"));
+                req_info.add(results.getString("Type"));
+                req_info.add(results.getString("Status"));
+                req_info.add(results.getDouble("TotalAmount"));
+                req_info.add(results.getString("CreatedDate"));
+                req_info.add(results.getString("SubmittedDate"));
+                resolved_lst.add(req_info);
+            }
+            return resolved_lst;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public void updateRequestDate(Integer reimbursementID) throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         java.util.Date date = new Date();

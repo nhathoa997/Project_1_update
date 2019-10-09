@@ -16,7 +16,6 @@ import java.util.List;
 public class ViewReimbursementTable {
     public static String viewTable(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 
-        EmpRepositoryImpl dao = new EmpRepositoryImpl();
         EmployeeInfo user = (EmployeeInfo)request.getSession().getAttribute("User");
         List<reimbursement> reims = user.getReimbursementID();
 //        WriteToJSON write = new WriteToJSON();

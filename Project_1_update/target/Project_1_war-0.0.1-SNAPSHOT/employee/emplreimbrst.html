@@ -119,7 +119,7 @@
             </form>
         </div>
     <script type = "text/javascript">
-        (window.onload = () => {
+        (document.addEventListener('DOMContentLoaded',function() {
             let xhttp = new XMLHttpRequest();
             xhttp.responseType = '';
             xhttp.open('GET', 'http://localhost:8080/Project_1_war/viewTable', true);
@@ -131,7 +131,7 @@
                 }
             }
             xhttp.send();
-        })();
+        }))();
 
         function setReimValues(reim) {
             let table = document.querySelector('tbody');

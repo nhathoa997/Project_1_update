@@ -107,7 +107,7 @@
               <div class="column">
                 <div class="card">
                   <!-- EXPE -->
-                    <table class="table-lef col-md-16">
+                    <table class="table-lef col-md-16" id = "emps_table">
                             
                             <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
                             Employees' List</h3>
@@ -117,19 +117,45 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><a href="mangemployeerq.html">Bob</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="mangemployeerq.html">Mary</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="mangemployeerq.html">John</a></td>
-                            </tr>
+<!--                            <tr>-->
+<!--                                <td><a href="mangemployeerq.html">Bob</a></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td><a href="mangemployeerq.html">Mary</a></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td><a href="mangemployeerq.html">John</a></td>-->
+<!--                            </tr>-->
                             </tbody>
                     </table>
                 </div>
               </div>
+            </div>
+    <script type = "text/javascript">
+        (document.addEventListener('DOMContentLoaded',function() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.responseType = '';
+            xhttp.open('get', 'http://localhost:8080/Project_1_war/viewEmployees', true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    let e = xhttp.responseText;
+                    console.log(e);
+                    let emps = JSON.parse(e);
+                    setReimValues(emps);
+                }
+            }
+            xhttp.send();
+        }))();
+
+        function setReimValues(emps) {
+            let table = document.querySelector('#emps_table > tbody');
+            for (let i = 0; i < emps.length; i++) {
+                let tr = table.appendChild(document.createElement('tr'));
+                let td = tr.appendChild(document.createElement('td'));
+                td.innerHTML = emps[i];
+            }
+        }
+    </script>
             
 
     <!-- jQuery needed for boostrap -->

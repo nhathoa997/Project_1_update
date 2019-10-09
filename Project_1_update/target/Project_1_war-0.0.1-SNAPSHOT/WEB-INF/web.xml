@@ -128,6 +128,30 @@
         <servlet-name>viewApproved</servlet-name>
         <url-pattern>/viewApproved/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>updateManagerInformation</servlet-name>
+        <servlet-class>com.company.servlet.updateManagerInformation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateManagerInformation</servlet-name>
+        <url-pattern>/updateManagerInformation/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>viewEmployees</servlet-name>
+        <servlet-class>com.company.servlet.viewEmployees</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewEmployees</servlet-name>
+        <url-pattern>/viewEmployees/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>viewPendingList</servlet-name>
+        <servlet-class>com.company.servlet.viewPendingList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewPendingList</servlet-name>
+        <url-pattern>/viewPendingList/*</url-pattern>
+    </servlet-mapping>
 
 
 

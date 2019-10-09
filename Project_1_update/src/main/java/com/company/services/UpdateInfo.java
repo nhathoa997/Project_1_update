@@ -23,15 +23,15 @@ public class UpdateInfo {
         if ((confirm_pass.equals(new_pass)) && (position.equals("employee"))){
             EmployeeInfo user = (EmployeeInfo)req.getSession().getAttribute("User");
             user.setPassword(new_pass);
-            dao.save(user);
+            dao.updatePassword(user);
             System.out.println("Password update successful!");
             return "/employee/emplhome.html";
         }else if ((confirm_pass.equals(new_pass)) && (position.equals("manager"))){
             ManagerInfo user = (ManagerInfo) req.getSession().getAttribute("User");
             user.setPassword(new_pass);
-            man_dao.save(user);
+            man_dao.updatePassword(user);
             System.out.println("Password update successful!");
-            return "/employee/emplhome.html";
+            return "/manager/manghome.html";
         }
         System.out.println("updating unsuccessful!");
         return "/employee/emplhome.html";

@@ -1,6 +1,9 @@
 package com.company.screenDirectory;
 
 import com.company.Tables.ViewReimbursementTable;
+import com.company.Tables.viewEmployeesTable;
+import com.company.Tables.viewPendingTable;
+import com.company.data.dao.EmpRepositoryImpl;
 import com.company.models.EmployeeInfo;
 import com.company.services.Authenticate;
 import com.company.services.UpdateInfo;
@@ -48,10 +51,13 @@ public class screenRequest {
                 return "/manager/mangpendingl.html";
             case "/Project_1_war/viewApproved":
                 return "/manager/mangapprovedl.html";
-//            case "/Project1/Update.do":
-//                return UpdateTable.update(request);
-//            case "/Project1/Create.do":
-//                return CreateTable.create(request);
+            case "/Project_1_war/updateManagerInformation":
+                UpdateInfo man_update = new UpdateInfo();
+                return man_update.update(request,"manager");
+            case "/Project_1_war/viewEmployees":
+                return viewEmployeesTable.viewTable(request,response);
+            case "/Project_1_war/viewPendingList":
+                return viewPendingTable.viewTable(request,response);
         }
         return "home.html";
     }

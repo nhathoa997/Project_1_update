@@ -115,35 +115,66 @@
           <div class="column">
             <div class="card">
               <!-- EXPE -->
-                <table class="table-lef col-md-16">
+                <table class="table-lef col-md-16" id = "pending_lst">
                         
                         <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
                         Pending Expense Reimbursements List</h3>
                         <thead>
                         <tr>
-                            <th scope="col">REIMBURSEMENT</th>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">REIMBURSEMENT ID</th>
+                            <th scope="col">STATUS</th>
                             <th scope="col">TYPE</th>
                             <th scope="col">TOTAL AMOUNT</th>
+                            <th scope="col">CREATED DATE</th>
                             <th scope="col">SUBMITTED DATE</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><a href="mangrembrstdl.html">ID2345</a></td>
-                            <td>Relocation to Training</td>
-                            <td>$400</td>
-                            <td>9/15/2019</td>
-                        </tr>
-                        <tr>
-                            <td><a href="mangrembrstdl.html">ID2445</a></td>
-                            <td>Relocation to Training</td>
-                            <td>$300</td>
-                            <td>9/29/2019</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td><a href="mangrembrstdl.html">ID2345</a></td>-->
+<!--                            <td>Relocation to Training</td>-->
+<!--                            <td>$400</td>-->
+<!--                            <td>9/15/2019</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><a href="mangrembrstdl.html">ID2445</a></td>-->
+<!--                            <td>Relocation to Training</td>-->
+<!--                            <td>$300</td>-->
+<!--                            <td>9/29/2019</td>-->
+<!--                        </tr>-->
                         </tbody>
                 </table>
             </div>
           </div>
+          </div>
+    <script type = "text/javascript">
+        (document.addEventListener('DOMContentLoaded',function() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.responseType = '';
+            xhttp.open('GET', 'http://localhost:8080/Project_1_war/viewPendingList', true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    let r = xhttp.responseText;
+                    let pend = JSON.parse(r);
+                    setReimValues(pend);
+                }
+            }
+            xhttp.send();
+        }))();
+
+        function setReimValues(pend) {
+            let table = document.querySelector('#pending_lst > tbody');
+            for (let i = 0; i < pend.length; i++) {
+                let tr = table.appendChild(document.createElement('tr'));
+                let values = Object.values(pend[i]);
+                for (var j = 0; j < values.length; j++) {
+                    let td = tr.appendChild(document.createElement('td'));
+                    td.innerHTML = values[j];
+                }
+            }
+        }
+    </script>
         
 
 
