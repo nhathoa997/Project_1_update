@@ -118,19 +118,17 @@
                             </thead>
                             <tbody>
 <!--                            <tr>-->
-<!--                                <td><a href="mangemployeerq.html">Bob</a></td>-->
+<!--                                <td><a href="mangemployeerq.html" name = "hey">Bob</a></td>-->
 <!--                            </tr>-->
 <!--                            <tr>-->
-<!--                                <td><a href="mangemployeerq.html">Mary</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td><a href="mangemployeerq.html">John</a></td>-->
+<!--                                <td><a href="mangemployeerq.html" name = "hey">Mary</a></td>-->
 <!--                            </tr>-->
                             </tbody>
                     </table>
                 </div>
               </div>
             </div>
+<!--    <form method="post" action="viewEmpHist">-->
     <script type = "text/javascript">
         (document.addEventListener('DOMContentLoaded',function() {
             let xhttp = new XMLHttpRequest();
@@ -152,7 +150,11 @@
             for (let i = 0; i < emps.length; i++) {
                 let tr = table.appendChild(document.createElement('tr'));
                 let td = tr.appendChild(document.createElement('td'));
-                td.innerHTML = emps[i];
+                let input = document.createElement('input');
+                input.name = 'user_name';
+                input.type = "submit";
+                input.value = emps[i];
+                td.appendChild(input);
             }
         }
     </script>

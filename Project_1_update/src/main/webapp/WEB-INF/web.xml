@@ -152,6 +152,22 @@
         <servlet-name>viewPendingList</servlet-name>
         <url-pattern>/viewPendingList/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>viewEmpHist</servlet-name>
+        <servlet-class>com.company.servlet.viewEmpHist</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewEmpHist</servlet-name>
+        <url-pattern>/viewEmpHist/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectEmpHome</servlet-name>
+        <servlet-class>com.company.servlet.redirectEmpHome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectEmpHome</servlet-name>
+        <url-pattern>/redirectEmpHome/*</url-pattern>
+    </servlet-mapping>
 
 
 

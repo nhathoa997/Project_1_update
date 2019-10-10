@@ -1,6 +1,7 @@
 package com.company.screenDirectory;
 
 import com.company.Tables.ViewReimbursementTable;
+import com.company.Tables.viewEmpHist;
 import com.company.Tables.viewEmployeesTable;
 import com.company.Tables.viewPendingTable;
 import com.company.data.dao.EmpRepositoryImpl;
@@ -58,6 +59,10 @@ public class screenRequest {
                 return viewEmployeesTable.viewTable(request,response);
             case "/Project_1_war/viewPendingList":
                 return viewPendingTable.viewTable(request,response);
+            case "/Project_1_war/viewEmpHist":
+                return viewEmpHist.viewTable(request,response);
+            case "/Project_1_war/redirectEmpHome":
+                return "/employee/emplhome.html";
         }
         return "home.html";
     }
