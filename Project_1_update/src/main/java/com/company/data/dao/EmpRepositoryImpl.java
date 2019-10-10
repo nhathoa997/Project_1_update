@@ -68,7 +68,26 @@ public class EmpRepositoryImpl implements EmployeeRepository {
     }
 
 
-    public EmployeeInfo findById(Integer integer) {
+    public List<reimbursement> findById(Integer id){
+        String sql = "SELECT * from reimbursementtable WHERE reimbursementid = " + id;
+        Statement statement = null;
+        List<reimbursement> req = new ArrayList<>();
+        reimbursement request;
+        try {
+            statement = Connection.conn.createStatement();
+            statement.execute(sql);
+            ResultSet result = statement.getResultSet();
+            while(result.next()){
+                request = new reimbursement(result.getInt("ReimbursementID"),
+                        result.getString("Type"), result.getString("Status"),
+                        result.getDouble("TotalAmount"),result.getString("CreatedDate"),
+                        result.getString("SubmittedDate"));
+                req.add(request);
+            }
+            return req;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -179,30 +198,6 @@ public class EmpRepositoryImpl implements EmployeeRepository {
                 pending_lst.add(req_info);
             }
             return pending_lst;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public ArrayList<List> viewResolvedList(){
-        String sql = "SELECT * from reimbursementtable WHERE status = 'Approved' or status = 'Declined'";
-        ArrayList<List> resolved_lst = new ArrayList<>();
-        try {
-            Statement statement = Connection.conn.createStatement();
-            statement.execute(sql);
-            ResultSet results = statement.getResultSet();
-            while(results.next()){
-                List req_info = new ArrayList();
-                req_info.add(results.getString("employeename"));
-                req_info.add(results.getInt("ReimbursementID"));
-                req_info.add(results.getString("Type"));
-                req_info.add(results.getString("Status"));
-                req_info.add(results.getDouble("TotalAmount"));
-                req_info.add(results.getString("CreatedDate"));
-                req_info.add(results.getString("SubmittedDate"));
-                resolved_lst.add(req_info);
-            }
-            return resolved_lst;
         } catch (SQLException e) {
             e.printStackTrace();
         }

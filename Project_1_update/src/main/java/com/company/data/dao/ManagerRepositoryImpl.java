@@ -8,9 +8,13 @@ import com.company.models.ManagerInfo;
 
 import java.sql.*;
 
+import com.company.models.reimbursement;
 import org.postgresql.Driver;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import com.company.connection.*;
 
 public class ManagerRepositoryImpl implements ManagerRepository {
@@ -45,8 +49,30 @@ public class ManagerRepositoryImpl implements ManagerRepository {
         return null;
     }
 
-
-    public ManagerInfo findById(Integer integer) {
+    public void saveDecision(Integer id, String status, String name) throws SQLException {
+        String sql = "INSERT INTO ResolvedCases VALUES (" + id +",'" + status + "','" + name + "')";
+        Statement statement = Connection.conn.createStatement();
+        statement.execute(sql);
+        System.out.println("decision has been made");
+    }
+    public ArrayList<List> viewResolvedList(){
+        String sql = "SELECT * from ResolvedCases";
+        ArrayList<List> resolved_lst = new ArrayList<>();
+        try {
+            Statement statement = Connection.conn.createStatement();
+            statement.execute(sql);
+            ResultSet results = statement.getResultSet();
+            while(results.next()){
+                List req_info = new ArrayList();
+                req_info.add(results.getInt("ReimbursementID"));
+                req_info.add(results.getString("Status"));
+                req_info.add(results.getString("ManagerName"));
+                resolved_lst.add(req_info);
+            }
+            return resolved_lst;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

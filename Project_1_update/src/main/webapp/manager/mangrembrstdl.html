@@ -96,33 +96,64 @@
                         Reimbursement List</h3>
                         <thead>
                         <tr>
-                            <th scope="col">REIMBURSEMENT</th>
-                            <th scope="col">TYPE</th>
+                            <th scope="col">REIMBURSEMENT ID</th>
                             <th scope="col">STATUS</th>
+                            <th scope="col">TYPE</th>
                             <th scope="col">TOTAL AMOUNT</th>
+                            <th scope="col">CREATED DATE</th>
                             <th scope="col">SUBMITTED DATE</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>ID2345</td>
-                            <td>Relocation to Training</td>
-                            <td>Waiting for Approval</td>
-                            <td>$400</td>
-                            <td>9/29/2019</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>ID2345</td>-->
+<!--                            <td>Relocation to Training</td>-->
+<!--                            <td>Waiting for Approval</td>-->
+<!--                            <td>$400</td>-->
+<!--                            <td>9/29/2019</td>-->
+<!--                        </tr>-->
                         </tbody>
                 </table>
             </div>
           </div>
+            <form method="post" action="handleDecision">
+                <div class="text-center">
+                    <input type="submit"  class="btn btn-secondary" role="button" name ="decision" value = "Approve" ></input>
+                </div>
+                <div class="text-center">
+                    <input type="submit"  class="btn btn-secondary" role="button" name = "decision" value="Deny"></input>
+                </div>
+            </form>
+        </div>
 
-        <div class="text-center">
-            <a href="manghome.html" class="btn btn-secondary" role="button">+ Approve</a>                           
-        </div>
-        <div class="text-center">
-            <a href="manghome.html" class="btn btn-secondary" role="button">- Denied</a>                           
-        </div>
-        </div>
+    <script type = "text/javascript">
+        (document.addEventListener('DOMContentLoaded',function() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.responseType = '';
+            xhttp.open('GET', 'http://localhost:8080/Project_1_war/handleEmpRequest', true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    let r = xhttp.responseText;
+                    console.log(r);
+                    let pend = JSON.parse(r);
+                    setReimValues(pend);
+                }
+            }
+            xhttp.send();
+        }))();
+
+        function setReimValues(pend) {
+            let table = document.querySelector('tbody');
+            for (let i = 0; i < pend.length; i++) {
+                let tr = table.appendChild(document.createElement('tr'));
+                let values = Object.values(pend[i]);
+                for (var j = 0; j < values.length; j++) {
+                    let td = tr.appendChild(document.createElement('td'));
+                    td.innerHTML = values[j];
+                }
+            }
+        }
+    </script>
         
 
 

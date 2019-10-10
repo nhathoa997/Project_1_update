@@ -34,8 +34,8 @@ public class Main {
 //        emp.createRequest("Certification", 560.35);
 //        WriteToJSON write = new WriteToJSON();
 //        write.write(emp);
-        for(int i = 0; i < dao.findEmpNames().size(); i++) {
-            System.out.println(dao.findEmpNames().get(i));
-        }
+//        for(int i = 0; i < dao.findEmpNames().size(); i++) {
+////            System.out.println(dao.findEmpNames().get(i));
+////        }
     }
 }

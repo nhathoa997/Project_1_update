@@ -121,27 +121,54 @@
                         Approved List</h3>
                         <thead>
                         <tr>
-                            <th scope="col">MANAGER'S NAME</th>
                             <th scope="col">REIMBURSEMENT I.D</th>
                             <th scope="col">STATUS</th>
+                            <th scope="col">MANAGER'S NAME</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Name of manager goes here</td>
-                            <td>ID4356</td>
-                            <td>Approved</td>
-                        </tr>
-                        <tr>
-                            <td>Name of manager goes here</td>
-                            <td>ID4357</td>
-                            <td>Approved</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>Name of manager goes here</td>-->
+<!--                            <td>ID4356</td>-->
+<!--                            <td>Approved</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Name of manager goes here</td>-->
+<!--                            <td>ID4357</td>-->
+<!--                            <td>Approved</td>-->
+<!--                        </tr>-->
                         </tbody>
                 </table>
             </div>
           </div>
         </div>
+    <script type = "text/javascript">
+        (document.addEventListener('DOMContentLoaded',function() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.responseType = '';
+            xhttp.open('GET', 'http://localhost:8080/Project_1_war/viewApproved', true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    let r = xhttp.responseText;
+                    let pend = JSON.parse(r);
+                    setReimValues(pend);
+                }
+            }
+            xhttp.send();
+        }))();
+
+        function setReimValues(pend) {
+            let table = document.querySelector('tbody');
+            for (let i = 0; i < pend.length; i++) {
+                let tr = table.appendChild(document.createElement('tr'));
+                let values = Object.values(pend[i]);
+                for (var j = 0; j < values.length; j++) {
+                    let td = tr.appendChild(document.createElement('td'));
+                    td.innerHTML = values[j];
+                }
+            }
+        }
+    </script>
         
 
 

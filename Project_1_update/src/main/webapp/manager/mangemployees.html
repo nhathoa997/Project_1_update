@@ -102,7 +102,7 @@
               background-color: #f1f1f1;
             }
             </style>
-            <form method="post" action="viewEmpHist">
+        <form method="post" action="viewEmpHist">
             <div class="row">
               <div class="column">
                 <div class="card">
@@ -113,23 +113,24 @@
                             Employees' List</h3>
                             <thead>
                             <tr>
-                                <th scope="col">Names</th>
+                                <th scope="col">Employee's Name</th>
+<!--                                <th scope="col">Reimbursement ID</th>-->
                             </tr>
                             </thead>
                             <tbody>
-<!--                            <tr>-->
-<!--                                <td><a href="mangemployeerq.html" name = "hey">Bob</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td><a href="mangemployeerq.html" name = "hey">Mary</a></td>-->
-<!--                            </tr>-->
+                            <tr>
+                                <td><input type="text" name = 'employee_name'></input></td>
+<!--                                <td><input type="text" name = 'reimbursement_id'></input></td>-->
+                            </tr>
+                            <tr>
+                                <td><input type="submit"  value="Search"></input></td>
+                            </tr>
                             </tbody>
                     </table>
                 </div>
               </div>
             </div>
             </form>
-<!--    <form method="post" action="viewEmpHist">-->
     <script type = "text/javascript">
         (document.addEventListener('DOMContentLoaded',function() {
             let xhttp = new XMLHttpRequest();
@@ -153,18 +154,7 @@
             for (let i = 0; i < emps.length; i++) {
                 let tr = document.createElement('tr');
                 let td = document.createElement('td');
-                let td2 = document.createElement('td');
-                let input = document.createElement('input');
-                let input2 = document.createElement('input');
-                input.type = "submit";
-                input.value = 'View';
-                td.appendChild(input);
-                input2.type = 'text';
-                input2.name = 'user_name';
-                input2.value = emps[i];
-                td2.appendChild(input2);
-                // td2.innerHTML = emps[i];
-                tr.appendChild(td2);
+                td.innerHTML = emps[i];
                 tr.appendChild(td);
                 table.appendChild(tr);
             }

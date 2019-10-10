@@ -11,24 +11,26 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class viewEmpHist {
+import static java.lang.Integer.parseInt;
+
+public class viewEmpRequest {
     private static int count = 0;
-    private static String user_name;
+    private static Integer id;
     public static String viewTable(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         count ++;
         if (count%2 == 1){
-            user_name = request.getParameter("employee_name");
+            id = parseInt(request.getParameter("reimbursement_id"));
+            request.getSession().setAttribute("reimbursement_id", id);
         }
-        System.out.println("Hey I was at view emp history");
-        System.out.println(user_name);
+        System.out.println("Hey I was at handle request");
+        System.out.println(id);
         EmpRepositoryImpl dao = new EmpRepositoryImpl();
-        EmployeeInfo user = dao.findUserName(user_name);
-        List<reimbursement> reims = user.getReimbursementID();
+        List<reimbursement> req = dao.findById(id);
         try {
-            response.getWriter().write(new ObjectMapper().writeValueAsString(reims));
+            response.getWriter().write(new ObjectMapper().writeValueAsString(req));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/manager/mangemployeerq.html";
+        return "/manager/mangrembrstdl.html";
     }
 }

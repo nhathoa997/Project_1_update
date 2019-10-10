@@ -1,11 +1,10 @@
 package com.company.screenDirectory;
 
-import com.company.Tables.ViewReimbursementTable;
-import com.company.Tables.viewEmpHist;
-import com.company.Tables.viewEmployeesTable;
-import com.company.Tables.viewPendingTable;
+import com.company.Tables.*;
 import com.company.data.dao.EmpRepositoryImpl;
+import com.company.data.dao.ManagerRepositoryImpl;
 import com.company.models.EmployeeInfo;
+import com.company.models.ManagerInfo;
 import com.company.services.Authenticate;
 import com.company.services.UpdateInfo;
 
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+
+import static java.lang.Integer.parseInt;
 
 public class screenRequest {
     public String nextScreen(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
@@ -51,7 +52,7 @@ public class screenRequest {
             case "/Project_1_war/redirectPending":
                 return "/manager/mangpendingl.html";
             case "/Project_1_war/viewApproved":
-                return "/manager/mangapprovedl.html";
+                return viewResolvedTable.viewTable(request,response);
             case "/Project_1_war/updateManagerInformation":
                 UpdateInfo man_update = new UpdateInfo();
                 return man_update.update(request,"manager");
@@ -65,8 +66,26 @@ public class screenRequest {
                 return "/employee/emplhome.html";
             case "/Project_1_war/redirectEmpHist":
                 System.out.println(request.getParameter("user_name"));
-                request.getSession().setAttribute("employee_name", request.getParameter("user_name"));
+//                request.getSession().setAttribute("employee_name", request.getParameter("user_name"));
                 return "/manager/mangemployeerq.html";
+            case "/Project_1_war/handleEmpRequest":
+                return viewEmpRequest.viewTable(request,response);
+            case "/Project_1_war/handleDecision":
+                EmpRepositoryImpl dao = new EmpRepositoryImpl();
+                ManagerInfo manager = (ManagerInfo) request.getSession().getAttribute("User");
+                ManagerRepositoryImpl man_dao = new ManagerRepositoryImpl();
+                int id = (int) request.getSession().getAttribute("reimbursement_id");
+                if (request.getParameter("decision").equals("Approve")){
+                    dao.updateRequest(id,"Approved");
+                    dao.updateRequestDate(id);
+                    man_dao.saveDecision(id,"Approved", manager.getUserName());
+                }
+                else if (request.getParameter("decision").equals("Deny")){
+                    dao.updateRequest(id,"Denied");
+                    dao.updateRequestDate(id);
+                    man_dao.saveDecision(id,"Denied", manager.getUserName());
+                }
+                return "/manager/mangpendingl.html";
         }
         return "home.html";
     }

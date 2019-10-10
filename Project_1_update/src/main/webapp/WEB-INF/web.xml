@@ -176,6 +176,22 @@
         <servlet-name>redirectEmpHist</servlet-name>
         <url-pattern>/redirectEmpHist/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>handleEmpRequest</servlet-name>
+        <servlet-class>com.company.servlet.handleEmpRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>handleEmpRequest</servlet-name>
+        <url-pattern>/handleEmpRequest/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>handleDecision</servlet-name>
+        <servlet-class>com.company.servlet.handleDecision</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>handleDecision</servlet-name>
+        <url-pattern>/handleDecision/*</url-pattern>
+    </servlet-mapping>
 
 
 
