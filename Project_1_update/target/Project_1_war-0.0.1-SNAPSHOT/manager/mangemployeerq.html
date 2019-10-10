@@ -133,6 +133,7 @@
             xhttp.onreadystatechange = () => {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     let r = xhttp.responseText;
+                    console.log(r);
                     let hist = JSON.parse(r);
                     setReimValues(hist);
                 }
@@ -141,7 +142,7 @@
         }))();
 
         function setReimValues(hist) {
-            let table = document.querySelector('#pending_lst > tbody');
+            let table = document.querySelector('tbody');
             for (let i = 0; i < hist.length; i++) {
                 let tr = table.appendChild(document.createElement('tr'));
                 let values = Object.values(hist[i]);

@@ -168,6 +168,14 @@
         <servlet-name>redirectEmpHome</servlet-name>
         <url-pattern>/redirectEmpHome/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>redirectEmpHist</servlet-name>
+        <servlet-class>com.company.servlet.redirectEmpHist</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectEmpHist</servlet-name>
+        <url-pattern>/redirectEmpHist/*</url-pattern>
+    </servlet-mapping>
 
 
 

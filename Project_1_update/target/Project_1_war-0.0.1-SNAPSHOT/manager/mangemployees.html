@@ -102,11 +102,11 @@
               background-color: #f1f1f1;
             }
             </style>
-            
+            <form method="post" action="viewEmpHist">
             <div class="row">
               <div class="column">
                 <div class="card">
-                  <!-- EXPE -->
+                  <!-- EXPENSE -->
                     <table class="table-lef col-md-16" id = "emps_table">
                             
                             <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
@@ -128,6 +128,7 @@
                 </div>
               </div>
             </div>
+            </form>
 <!--    <form method="post" action="viewEmpHist">-->
     <script type = "text/javascript">
         (document.addEventListener('DOMContentLoaded',function() {
@@ -147,15 +148,27 @@
 
         function setReimValues(emps) {
             let table = document.querySelector('#emps_table > tbody');
+
+
             for (let i = 0; i < emps.length; i++) {
-                let tr = table.appendChild(document.createElement('tr'));
-                let td = tr.appendChild(document.createElement('td'));
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let td2 = document.createElement('td');
                 let input = document.createElement('input');
-                input.name = 'user_name';
+                let input2 = document.createElement('input');
                 input.type = "submit";
-                input.value = emps[i];
+                input.value = 'View';
                 td.appendChild(input);
+                input2.type = 'text';
+                input2.name = 'user_name';
+                input2.value = emps[i];
+                td2.appendChild(input2);
+                // td2.innerHTML = emps[i];
+                tr.appendChild(td2);
+                tr.appendChild(td);
+                table.appendChild(tr);
             }
+
         }
     </script>
             

@@ -63,6 +63,10 @@ public class screenRequest {
                 return viewEmpHist.viewTable(request,response);
             case "/Project_1_war/redirectEmpHome":
                 return "/employee/emplhome.html";
+            case "/Project_1_war/redirectEmpHist":
+                System.out.println(request.getParameter("user_name"));
+                request.getSession().setAttribute("employee_name", request.getParameter("user_name"));
+                return "/manager/mangemployeerq.html";
         }
         return "home.html";
     }
