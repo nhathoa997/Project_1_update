@@ -20,6 +20,7 @@ public class Authenticate {
 
     public String authenticate(HttpServletRequest request, String position) throws SQLException, ClassNotFoundException {
         if (position.equals("employee")){
+
             userName = request.getParameter("emp_username");
             password = request.getParameter("emp_password");
             this.dao = new EmpRepositoryImpl();

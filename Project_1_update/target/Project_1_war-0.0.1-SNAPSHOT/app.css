@@ -1,7 +1,7 @@
-body {
-    background:#e7e7e7;
+  body {
+    background:#dfd5d5;
     color: #333333;
-    /* margin-top: 1rem; */
+    margin-top: 1rem;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -17,6 +17,3 @@ body {
     background-image: none;
     background-repeat: no-repeat;
    }
-
-   
- 

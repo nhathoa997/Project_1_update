@@ -1,0 +1,79 @@
+.big-banner{
+    background-image: url('bk_home.jpg');
+    background-size: 1400px; 
+    opacity: .9;
+}
+
+.big-banner_bk_login{
+    background-image: url('bk_login.jpg');
+    background-size: 1400px;
+}
+
+.big-banner_bk_userhome{
+    background-image: url('bk_userhome.jpg');
+    background-size: 1400px;
+}
+
+.jumbotron{
+    background-color:rgb(151, 151, 151);
+    text-align:center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.card-home{
+    position: relative; 
+    left: 200px; 
+    background: hsl(34, 90%, 92%);
+}
+
+.card-login{
+    position: relative;
+    left: 240px; 
+    background: hsl(35, 29%, 80%);
+    margin-top: 140px;
+    opacity: .9;
+}
+
+.card-userhome_ex_reinb{
+    position: relative;
+    left: 100px; 
+    background: hsl(35, 29%, 80%);
+    margin-top: 40px;
+    width: 120%;
+}
+
+.card-userhome_anounce{
+    position: relative;
+    left: 800px; 
+    background: hsl(36, 47%, 79%);
+    margin-top: 5px;
+    margin-top: 100px;
+}
+
+.card-userhome_reinblist{
+    position: relative;
+    left: 70px; 
+    background: hsl(36, 47%, 79%);
+    margin-top: 30px;
+    width: 90%;
+    opacity: .9;
+}
+
+.card-setting-page{
+    position: relative;
+    background: hsl(36, 46%, 79%);
+    width: 60%;
+    margin-left: 10px;
+    margin-top: 30px;
+    opacity: .9;
+}
+
+.card-exp-details{
+    position: relative;
+    left: 70px; 
+    background: hsl(36, 47%, 79%);
+    margin-top: 30px;
+    width: 90%;
+    opacity: .9;
+}

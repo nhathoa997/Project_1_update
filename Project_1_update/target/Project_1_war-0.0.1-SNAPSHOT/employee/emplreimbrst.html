@@ -6,18 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ERS Employee's Reimbursement</title>
 
-      <!-- Reference to the Bootstrap CSS file -->
+    <!-- Reference to the Bootstrap CSS file -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-  crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="/Project_1_war/app.css">
-
-  
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="/Project_1_war/app-style.css">
 </head>
-<body>
 
+<body class="big-banner_bk_userhome">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -28,98 +23,51 @@
                     </li>
                 </form>
             </ul>
-            <!-- EMPLOYEE NAME  -->
-            <div class="dropdown" style = "position: relative; left: 50px">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Employee Name
-                </button>
-                <form method="post" action="redirectSettings">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <input type= "submit" class="dropdown-item" value = "Settings"></input>
-                        <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-
-
-
-
-
-        <style>
-        * {
-          box-sizing: border-box;
-        }
-        
-        body {
-          font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        /* Float four columns side by side */
-        .column {
-          float: left;
-          width: 45%;
-          padding: 0 40px;
-        }
-        
-        /* Remove extra left and right margins, due to padding */
-        .row {margin: 0 -5px;}
-        
-        /* Clear floats after the columns */
-        .row:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-        
-        /* Responsive columns */
-        @media screen and (max-width: 1500px) {
-          .column {
-            width: 100%;
-            display: block;
-            margin-bottom: 20px;
-          }
-        }
-        
-        /* Style the counter cards */
-        .card {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          padding: 16px;
-          text-align: center;
-          background-color: #f1f1f1;
-        }
-        </style>
-        
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <!-- EXPE -->
-                <table class="table-lef col-md-16" id = "reimbursement Table">
-                        
-                        <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4" }>
-                        Expense Reimbursements List</h3>
-                        <tr>
-                            <th scope="col" style = "position: relative; left: 80px" >REIMBURSEMENT ID</th>
-                            <th scope="col" style = "position: relative; left: 50px">TYPE</th>
-                            <th scope="col" style = "position: relative; left: 35px">STATUS</th>
-                            <th scope="col" style = "position: relative; left: 60px">TOTAL AMOUNT</th>
-                            <th scope="col" style = "position: relative; left: 80px">CREATED DATE</th>
-                            <th scope="col" style = "position: relative; left: 80px">SUBMITTED DATE</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                </table>
-            </div>
-          </div>
-            <form method="post" action="redirectToCreate">
-                <div class="text-center">
-                    <input type="submit"  class="btn btn-secondary" value = "Create New Expense" role="button"></input>
+            
+        <!-- EMPLOYEE NAME  -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Employee Name
+            </button>
+            <form method="post" action="redirectSettings">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <input type= "submit" class="dropdown-item" value = "Settings"></input>
+                    <a class="dropdown-item" href="/Project_1_war/home.html">Logout</a>
                 </div>
             </form>
         </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="column">
+            <div class="card-userhome_reinblist rounded">
+                <table class="table" id = "reimbursement Table">
+                    <h3 class="text-center col-m-6 font-weight-bold text-uppercase py-4">
+                        Expense Reimbursements List
+                    </h3>
+                    <form method="post" action="redirectToCreate">
+                        <div class="text-center">
+                            <input type="submit"  class="btn btn-secondary" value = "Create New Expense" role="button"></input>
+                        </div>
+                    </form>
+
+                    <thead>
+                    <tr>
+                        <th scope="col">REIMBURSEMENT</th>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">TOTAL AMOUNT</th>
+                        <th scope="col">SUBMITTED DATE</th>
+                        <th scope="col">RESOLVED DATE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <script type = "text/javascript">
         (document.addEventListener('DOMContentLoaded',function() {
             let xhttp = new XMLHttpRequest();
@@ -134,7 +82,6 @@
             }
             xhttp.send();
         }))();
-
         function setReimValues(reim) {
             let table = document.querySelector('tbody');
             for (let i = 0; i < reim.length; i++) {
@@ -145,12 +92,6 @@
                     td.innerHTML = values[j];
                 }
             }
-                // tr.addEventListener('click', (url) => {
-                //     popUpWindow = window.open('', 'popUpWindow', 'height=350,width=400,left=1450,top=200,resizable=0,scrollbars=0,toolbar=0,menubar=0,location=0,directories=0,status=yes');
-                //     popUpWindow.document.write('<h1>Description:</h1>');
-                //     popUpWindow.document.write(reim[i].description);
-                //     setTimeout(() => { popUpWindow.close(); }, 5000);
-                // });
         }
     </script>
 

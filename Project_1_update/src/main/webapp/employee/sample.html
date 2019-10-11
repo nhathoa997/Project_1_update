@@ -1,0 +1,188 @@
+<div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- -------------------------------------------------------------------------------------------- -->
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>ERS Employee's Reimbursement</title>
+      
+            <!-- Reference to the Bootstrap CSS file -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+              crossorigin="anonymous">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+          <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+      
+        <link rel="stylesheet" href="/Project_1_war/app-style.css">
+      </head>
+      
+      <body class="big-banner_bk_userhome">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                      <!-- HOME PAGE -->
+                      <li class="nav-item active">
+                      <a class="btn btn-secondary" href="/employee/emplhome.html">Home</a>
+                      </li>
+                  </ul>
+                  
+              <!-- EMPLOYEE NAME  -->
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Employee Name
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="emplsettings.html">Settings</a>
+                      <a class="dropdown-item" href="../home.html">Logout</a>
+                  </div>
+              </div>
+              </div>
+          </nav>
+      
+      
+      
+      
+      
+      
+              <!-- <style>
+              * {
+                box-sizing: border-box;
+              }
+              
+              body {
+                font-family: Arial, Helvetica, sans-serif;
+              }
+              
+              /* Float four columns side by side */
+              .column {
+                float: left;
+                width: 45%;
+                padding: 0 40px;
+              }
+              
+              /* Remove extra left and right margins, due to padding */
+              .row {margin: 0 -5px;}
+              
+              /* Clear floats after the columns */
+              .row:after {
+                content: "";
+                display: table;
+                clear: both;
+              }
+              
+              /* Responsive columns */
+              @media screen and (max-width: 1500px) {
+                .column {
+                  width: 100%;
+                  display: block;
+                  margin-bottom: 20px;
+                }
+              }
+              
+              /* Style the counter cards */
+              .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                text-align: center;
+                background-color: #f1f1f1;
+              }
+              </style> -->
+              
+              <div class="row">
+                <div class="column">
+                  <div class="card-userhome_reinblist rounded">
+                      <table class="table" id = "reimbursement Table">
+                        <h3 class="text-left col-m-6 font-weight-bold text-uppercase py-4">
+                          Expense Reimbursements List</h3>
+                        <thead>
+                        <tr>
+                            <th scope="col">REIMBURSEMENT</th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col">TOTAL AMOUNT</th>
+                            <th scope="col">CREATED DATE</th>
+                            <th scope="col">SUBMITTED DATE</th>
+                        </tr>
+                        </thead>
+                      </table>
+                  </div>
+              </div>
+      
+                <div class="text-center">
+                      <a href="emplexprdetails.html" class="btn btn-secondary" role="button">+ Create New Expense</a>                           
+                  </div>
+              </div>
+          <script type = "text/javascript">
+              (window.onload = () => {
+                  let xhttp = new XMLHttpRequest();
+                  xhttp.responseType = '';
+                  xhttp.open('GET', 'http://localhost:8080/Project_1_war/viewTable', true);
+                  xhttp.onreadystatechange = () => {
+                      if (xhttp.readyState == 4 && xhttp.status == 200) {
+                          let r = xhttp.responseText;
+                          let reim = JSON.parse(r);
+                          setReimValues(reim);
+                      }
+                  }
+                  xhttp.send();
+              })();
+      
+              function setReimValues(reim) {
+                  let table = document.querySelector('tbody');
+                  for (let i = 0; i < reim.length; i++) {
+                      let tr = table.appendChild(document.createElement('tr'));
+                      let values = Object.values(reim[i]);
+                      for (var j = 0; j < values.length; j++) {
+                          let td = tr.appendChild(document.createElement('td'));
+                          td.innerHTML = values[j];
+                      }
+                      tr.addEventListener('click', (url) => {
+                          popUpWindow = window.open('', 'popUpWindow', 'height=350,width=400,left=1450,top=200,resizable=0,scrollbars=0,toolbar=0,menubar=0,location=0,directories=0,status=yes');
+                          popUpWindow.document.write('<h1>Description:</h1>');
+                          popUpWindow.document.write(reim[i].description);
+                          setTimeout(() => {
+                              popUpWindow.close();
+                          }, 5000);
+                      });
+                  }
+              }
+          </script>
+      
+      
+      
+      <!--    <script src="Json/Takeda Shingen.txt"></script>-->
+      <!--    <script src="employee/reimbursementTable.js"></script>-->
+      <!--    <script src="C:\Users\dinhh\1908-aug09-java-aug\Project_1_update\src\main\webapp\employee\reimbursementTable.js" type="text/javascript"></script>-->
+          <!-- jQuery needed for boostrap -->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <!-- Has to do with pop ups and drop downs -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <!-- Actual boostrap files that make boostrap possiable in this pages -->
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
+      </html>
