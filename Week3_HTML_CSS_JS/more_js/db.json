@@ -1,0 +1,19 @@
+{
+    "lists":[
+        {
+            "id": 1,
+            "todos": [
+                {
+                    "id": 1,
+                    "name": "Paint the fence",
+                    "isComplete": false
+                },
+                {
+                    "id": 2,
+                    "name": "Wax the car",
+                    "isComplete": false
+                }
+            ]
+        }
+    ]
+}

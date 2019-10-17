@@ -19,21 +19,22 @@ public class ManagerRepositoryImpl implements ManagerRepository {
         try{
             //Class.forName("org.postgresql.Driver");
             Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE IF not EXISTS ManagerAccount(UserName TEXT,Password TEXT) ");
+            statement.execute("CREATE TABLE IF not EXISTS ManagerAccount(ManagerName TEXT,Password TEXT) ");
+            statement.execute("CREATE TABLE IF not EXISTS ResolvedCases(ReimbursementID INTEGER,Status TEXT,ManagerName TEXT)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public ManagerInfo findUserName(String userName) {
-        String sql = "SELECT * from ManagerAccount where Username = '" + userName + "'";
+        String sql = "SELECT * from ManagerAccount where ManagerName = '" + userName + "'";
         try {
             Statement statement = conn.createStatement();
             statement.execute(sql);
 
             ResultSet results = statement.getResultSet();
             if (results.next()){
-                manager = new ManagerInfo(results.getString("UserName"), results.getString("Password"));
+                manager = new ManagerInfo(results.getString("ManagerName"), results.getString("Password"));
                 return manager;
             }
 
@@ -52,18 +53,10 @@ public class ManagerRepositoryImpl implements ManagerRepository {
         return null;
     }
 
-    public void save(ManagerInfo obj) {
-
-    }
-
-    public void saveUpdate(EmployeeInfo emp){
+    public void save(ManagerInfo manager) {
         try{
-            ArrayList<reimbursement> emp_reimbursement = emp.getReimbursementID();
-//            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-//            java.util.Date date = new Date();
-//            String valnow = formatter.format(date);
             Statement statement = conn.createStatement();
-            String sql = "UPDATE Reimbursements SET Status = 'Approved' WHERE ReimbursementID = '" + emp_reimbursement. + ;
+            String sql = "INSERT INTO ManagerAccount VALUES ('" + manager.getUserName() +"','" + manager.getPassword() + "')";
             statement.execute(sql);
 
 
@@ -72,7 +65,24 @@ public class ManagerRepositoryImpl implements ManagerRepository {
         }
     }
 
-    public void delete(String obj) {
+    public void saveUpdate(EmployeeInfo emp, Integer reimbursementID){
+        try{
+            ArrayList<reimbursement> emp_reimbursement = emp.getReimbursementID();
+            Statement statement = conn.createStatement();
+//            int position = 0;
+//            for (int i = 0; i < emp_reimbursement.size(); i++){
+//                if (emp_reimbursement.get(i).getReimbursementID() == reimbursementID){
+//                    position = i;
+//                }
+//            }
+            String sql = "UPDATE Reimbursements SET Status = 'Approved' WHERE ReimbursementID = " + reimbursementID;
+            statement.execute(sql);
 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delete(String obj) {
     }
 }

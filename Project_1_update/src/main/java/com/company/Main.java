@@ -17,6 +17,6 @@ import java.util.Collection;
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         createManager new_mang = new createManager();
-        new_mang.create("Henry Dinh", "password");
+        new_mang.create("David Beckam", "password");
     }
 }

@@ -68,12 +68,12 @@ public class EmployeeScreen implements Screen {
                     while(password.isEmpty()) {
                         password = scanner.nextLine();
                     }
-                    do{
+                    while(auth.authenticate(userName,password,"customer") == false) {
                         System.out.println("User Name has been taken. Please enter a different User Name: ");
                         userName = scanner.nextLine();
                         System.out.println("Password: ");
                         password = scanner.nextLine();
-                    }while(auth.authenticate(userName,password,"customer"));
+                    }
                     newUser.create(userName,password);
                     invalid = false;
                     newScreen = new EmployeeScreen();

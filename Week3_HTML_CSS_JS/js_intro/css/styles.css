@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+.text-bigger {
+    font-size: 1.25em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+ul.todo-list {
+    border: 1px solid black;
+    display: inline-block;
+    overflow: hidden;
+    width: 250px;
+    min-height: 250px;
+}
+
+ul.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.todo-list li {
+    margin: 10px 2px 10px 2px;
+    padding: 5px;
+    border-bottom: 1px solid #999;
+}
+
+.del-button {
+    background-color: red;
+}
+
+ul.todo-list li .del-button {
+    float: right;
+}

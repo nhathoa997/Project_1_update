@@ -15,7 +15,7 @@ public class WelcomeScreen implements Screen {
     @Override
     public Screen doScreen(Scanner scanner, Application app) {
         //LOG.debug("Enter Screen");
-        System.out.println("Welcome to " + app.getTitle()+" Are you a customer or an employee?");
+        System.out.println("Welcome to " + app.getTitle()+" Verify your action below: ");
         String menuText = "";
         menuText = new StringMenuBuilder()
                 .addOption("1. ", "Customer")

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Subscribe</title>
+  </head>
+  <body>
+    <h1>Subscribe</h1>
+    <form>
+      <div>
+        <label>First Name:</label
+        ><input type="text" name="first-name" required />
+        <label>Last Name:</label
+        ><input type="text" name="last-name" required /> <label>Email:</label
+        ><input type="email" name="email" required />
+      </div>
+      <div>
+        <label for="">Age:</label
+        ><input type="number" name="age" min="18" max="100" />
+        <label for="">DOB:</label><input type="date" name="birth-date" />
+      </div>
+      <div>
+        <input type="checkbox" name="gender" value="Male"/>Male
+        <input type="checkbox" name="gender" value="Female"/>Female
+      </div>
+      <div>
+        <input type="radio" name="job" value="Engineer"/>Engineer
+        <input type="radio" name="job" value="Lead"/>Lead
+        <input type="radio" name="job" value="Other"/>Other
+      </div>
+      <div>
+        <button type="reset">Clear</button>
+        <button type="submit" disabled>Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

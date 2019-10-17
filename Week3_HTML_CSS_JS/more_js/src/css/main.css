@@ -1,0 +1,9 @@
+.todo-item .del-button {
+    background-color: red;
+    border: none;
+    float: right;
+}
+
+.todo-item .todo-done {
+    text-decoration: line-through;
+}

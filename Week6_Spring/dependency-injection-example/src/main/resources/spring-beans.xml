@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    Classes managed by spring are called spring beans-->
+<!--    Spring beans can me configured using XML or annotations-->
+<!--    This is a small example of XML bean configurations-->
+<!--    Each bean has and id property which id defined by you the developer-->
+<!--    and a class that will be instantiated by Spring when the
+        ApplicationContext/BeanFactory is created-->
+    <bean id="firstDao" class="com.ex.dao.DaoImpl"/>
+    <bean id="secondDao" class="com.ex.dao.AnotherDaoImpl"/>
+
+<!--    Spring beans will rely on other spring beans to do their work.-->
+<!--    Spring uses dependency injection to help resolve bean dependencies-->
+<!--    Beans can be injected through Field, Setter, or Constructor-->
+<!--    This configuration is setup for setter injection-->
+    <bean id="employeeService" class="com.ex.services.EmployeeServiceImpl"
+        init-method="customInit" destroy-method="customDestroy">
+        <property name="dao" ref="firstDao"/>
+    </bean>
+
+<!--    This configuration is setup for constructor injection-->
+<!--    <bean id="employeeService" class="com.ex.services.EmployeeServiceImpl">-->
+<!--        <constructor-arg ref="firstDao" index="0"/>-->
+<!--    </bean>-->
+</beans>

@@ -1,20 +1,33 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class reimbursement {
-    private String reimbursementID;
+    private Integer reimbursementID;
     private String type;
     private String status;
-    private String totalAmount;
-    private Date createdDate;
-    private Date submittedDate;
+    private Double totalAmount;
+    private String createdDate;
+    private String submittedDate;
 
-    public String getReimbursementID() {
+    public reimbursement(String type, Double totalAmount) {
+        this.reimbursementID = new Random().nextInt(9999999-1000000)+1000000;
+        this.totalAmount = totalAmount;
+        this.type = type;
+        this.status = "Pending";
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        String valnow = formatter.format(date);
+        this.createdDate = valnow;
+    }
+
+    public Integer getReimbursementID() {
         return reimbursementID;
     }
 
-    public void setReimbursementID(String reimbursementID) {
+    public void setReimbursementID(Integer reimbursementID) {
         this.reimbursementID = reimbursementID;
     }
 
@@ -34,27 +47,27 @@ public class reimbursement {
         this.status = status;
     }
 
-    public String getTotalAmount() {
+    public Double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(String totalAmount) {
+    public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getSubmittedDate() {
+    public String getSubmittedDate() {
         return submittedDate;
     }
 
-    public void setSubmittedDate(Date submittedDate) {
+    public void setSubmittedDate(String submittedDate) {
         this.submittedDate = submittedDate;
     }
 }

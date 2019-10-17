@@ -1,0 +1,90 @@
+<!DOCTYPE html> <!-- document type definition -->
+<html lang="en"> <!-- the root tag-->
+
+<!--optional-->
+<!-- Meta data/non-rendered information-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        div.container {
+            position: relative;
+        }
+        
+        aside {
+            display: inline-block;
+            margin: 0;
+            width: 25%;
+            border-right: 1px solid #999;
+        }
+        main {
+            margin: 0;
+            width: 70%;
+            float: right;
+        }
+
+        footer {
+            clear: both;
+            position: fixed;
+            bottom: 5px;
+            display: block;
+        }
+
+        .headline {
+            border: 1px solid black;
+        }
+
+        article:hover {
+            background-color: #aaa;
+        }
+
+        article.headline:hover {
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<!--Rendered elements-->
+<body>
+    <div class="container">
+        <header>Tech News</header>
+        <aside>
+            <p>Menu</p>
+            <ul>
+                <li>
+                    <a href="subscribe.html">Subscribe</a>
+                </li>
+                <li>
+                    <a href="http://www.google.com">Google</a>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <article class="headline">
+                <h1>New Stuff</h1>
+                <p>Some really cool things &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; are
+                    <br/>
+                    happening
+                </p>
+            </article>
+            <article>
+                <h2 style="color:yellow">More Stuff</h2>
+            </article>
+            <article>
+                <h2>Reviews</h2>
+            </article>
+        </main>
+        <footer>
+            <h5>Tech News 09/23/2019</h5>
+        </footer>
+    </div>
+</body>
+</html>

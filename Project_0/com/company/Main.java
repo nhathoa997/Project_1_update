@@ -13,8 +13,5 @@ public class Main {
         Application app = new BankApplication();
         app.setTitle(bankTitle);
         app.run(args);
-
-
-
     }
 }

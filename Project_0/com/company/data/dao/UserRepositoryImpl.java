@@ -89,8 +89,8 @@ public class UserRepositoryImpl implements UserRepository  {
         statement.execute(sql);
         ResultSet results = statement.getResultSet();
         while(results.next()){
-            System.out.println("[ID: "+results.getInt("id")+"\nTransaction Type: " + results.getString("type") + "\nAmount: $"
-                    + results.getDouble("amount") + "\nDate: " + results.getString("date")+ "]");
+            System.out.println("[ID: "+results.getInt("id")+". Transaction Type: " + results.getString("type") + ". Amount: $"
+                    + results.getDouble("amount") + ". Date: " + results.getString("date")+ "]");
         }
 
 
